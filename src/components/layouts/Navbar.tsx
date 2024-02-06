@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { Search, ShoppingCart } from "lucide-react";
 import NavbarHeader from "./NavbarHeader";
-import logo from "@/assets/granthagar.png";
+import logo from "/public/granthagar.png";
 import Image from "next/image";
 import {
   NavigationMenu,
@@ -16,18 +16,21 @@ import booksLogo from "@/assets/books.jpg";
 import { Button } from "../ui/button";
 const Navbar = () => {
   const menus = [
-    { title: "Home", path: "/your-path" },
+    { title: "Home", path: "/" },
     { title: "Blog", path: "/your-path" },
-    { title: "About Us", path: "/your-path" },
+    { title: "About Us", path: "/about" },
     { title: "Contact Us", path: "/your-path" },
   ];
 
   return (
-    <nav className=" w-full max-w-7xl mx-auto border-b md:border-0">
+    <nav className="bg-[#ebefe044]  w-full max-w-7xl mx-auto border-b md:border-0">
       <div>
         <NavbarHeader></NavbarHeader>
       </div>
-      <div className="flex mx-5 gap-4 justify-between flex-wrap items-center my-2">
+
+      <div
+        className={`p-3 h-full flex gap-4 justify-between flex-wrap items-center`}
+      >
         <Link className="md:block hidden" href="/">
           <Image src={logo} alt="logo" height={70} />
         </Link>
