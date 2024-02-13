@@ -1,20 +1,23 @@
-import Image from "next/image";
 import Container from "../ui/Container";
-import logo from "/public/granthagar.png";
 import Link from "next/link";
 const Footer = () => {
   return (
     <Container>
-      <footer className="bg-gray-900 p-3">
+      <footer className=" p-5 border-t border-primary">
         <div className=" pt-16 pb-6 mx-auto">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             <div>
-              <div className="flex justify-center text-teal-300 sm:justify-start">
-                <Link className="md:block hidden" href="/">
-                  <Image src={logo} alt="logo" height={70} />
-                </Link>
-              </div>
-              <p className="max-w-md mx-auto mt-6 leading-relaxed text-center text-gray-400 sm:max-w-xs sm:mx-0 sm:text-left">
+              <Link className="md:flex relative items-center  hidden" href="/">
+                <lord-icon
+                  src="https://cdn.lordicon.com/qwjfapmb.json"
+                  trigger="hover"
+                  colors="primary:#ebe6ef,secondary:#16c72e,tertiary:#3a3347,quaternary:#f24c00,quinary:#faf9d1"
+                  style={{ width: 100, height: 80 }}
+                ></lord-icon>
+                <p className="font-semibold -ms-5 uppercase">Granthagar</p>
+              </Link>
+
+              <p className="max-w-md mx-auto mt-6 leading-relaxed text-center  sm:max-w-xs sm:mx-0 sm:text-left">
                 Granthagar is the fastest online Books Delivery site. It also
                 works with stationary and electronics items. It Delivers all
                 over the country.
@@ -25,12 +28,12 @@ const Footer = () => {
                     href="/"
                     rel="noopener noreferrer"
                     target="_blank"
-                    className="text-teal-500 transition hover:text-teal-500/75"
+                    className="bg-primary transition hover:bg-primary/75"
                   >
                     <span className="sr-only">Facebook</span>
                     <svg
                       className="w-6 h-6"
-                      fill="currentColor"
+                      fill="green"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
                     >
@@ -47,12 +50,12 @@ const Footer = () => {
                     href="/"
                     rel="noopener noreferrer"
                     target="_blank"
-                    className="text-teal-500 transition hover:text-teal-500/75"
+                    className="bg-primary transition hover:bg-primary/75"
                   >
                     <span className="sr-only">Instagram</span>
                     <svg
                       className="w-6 h-6"
-                      fill="currentColor"
+                      fill="green"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
                     >
@@ -69,12 +72,12 @@ const Footer = () => {
                     href="/"
                     rel="noopener noreferrer"
                     target="_blank"
-                    className="text-teal-500 transition hover:text-teal-500/75"
+                    className="bg-primary transition hover:bg-primary/75"
                   >
                     <span className="sr-only">Twitter</span>
                     <svg
                       className="w-6 h-6"
-                      fill="currentColor"
+                      fill="green"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
                     >
@@ -86,38 +89,26 @@ const Footer = () => {
             </div>
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-2 md:grid-cols-4">
               <div className="text-center sm:text-left">
-                <p className="text-lg font-medium text-white">About Us</p>
+                <p className="text-lg font-medium ">About Us</p>
                 <nav className="mt-8">
                   <ul className="space-y-4 text-sm">
                     <li>
-                      <a
-                        className="text-white transition hover:text-white/75"
-                        href="/"
-                      >
+                      <a className="hover:underline transition-all" href="/">
                         Company History
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="text-white transition hover:text-white/75"
-                        href="/"
-                      >
+                      <a className="hover:underline transition-all" href="/">
                         Meet the Team
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="text-white transition hover:text-white/75"
-                        href="/"
-                      >
+                      <a className="hover:underline transition-all" href="/">
                         Employee Handbook
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="text-white transition hover:text-white/75"
-                        href="/"
-                      >
+                      <a className="hover:underline transition-all" href="/">
                         Careers
                       </a>
                     </li>
@@ -125,38 +116,26 @@ const Footer = () => {
                 </nav>
               </div>
               <div className="text-center sm:text-left">
-                <p className="text-lg font-medium text-white">Our Services</p>
+                <p className="text-lg font-medium ">Our Services</p>
                 <nav className="mt-8">
                   <ul className="space-y-4 text-sm">
                     <li>
-                      <a
-                        className="text-white transition hover:text-white/75"
-                        href="/"
-                      >
+                      <a className="hover:underline transition-all" href="/">
                         Book Category
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="text-white transition hover:text-white/75"
-                        href="/"
-                      >
+                      <a className="hover:underline transition-all" href="/">
                         Boi Mela {new Date().getFullYear()}
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="text-white transition hover:text-white/75"
-                        href="/"
-                      >
+                      <a className="hover:underline transition-all" href="/">
                         Foreign Books
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="text-white transition hover:text-white/75"
-                        href="/"
-                      >
+                      <a className="hover:underline transition-all" href="/">
                         Best Selling
                       </a>
                     </li>
@@ -164,22 +143,16 @@ const Footer = () => {
                 </nav>
               </div>
               <div className="text-center sm:text-left">
-                <p className="text-lg font-medium text-white">Helpful Links</p>
+                <p className="text-lg font-medium ">Helpful Links</p>
                 <nav className="mt-8">
                   <ul className="space-y-4 text-sm">
                     <li>
-                      <a
-                        className="text-white transition hover:text-white/75"
-                        href="/"
-                      >
+                      <a className="hover:underline transition-all" href="/">
                         FAQs
                       </a>
                     </li>
                     <li>
-                      <a
-                        className="text-white transition hover:text-white/75"
-                        href="/"
-                      >
+                      <a className="hover:underline transition-all" href="/">
                         Support
                       </a>
                     </li>
@@ -188,12 +161,12 @@ const Footer = () => {
                         className="flex group justify-center sm:justify-start gap-1.5"
                         href="/"
                       >
-                        <span className="text-white transition group-hover:text-white/75">
+                        <span className=" transition group-hover:/75">
                           Live Chat
                         </span>
                         <span className="relative flex w-2 h-2 -mr-2">
-                          <span className="absolute inline-flex w-full h-full bg-teal-400 rounded-full opacity-75 animate-ping" />
-                          <span className="relative inline-flex w-2 h-2 bg-teal-500 rounded-full" />
+                          <span className="absolute inline-flex w-full h-full bg-primary rounded-full opacity-75 animate-ping" />
+                          <span className="relative inline-flex w-2 h-2 bg-primary rounded-full" />
                         </span>
                       </a>
                     </li>
@@ -201,7 +174,7 @@ const Footer = () => {
                 </nav>
               </div>
               <div className="text-center sm:text-left">
-                <p className="text-lg font-medium text-white">Contact Us</p>
+                <p className="text-lg font-medium ">Contact Us</p>
                 <ul className="mt-8 space-y-4 text-sm">
                   <li>
                     <a
@@ -210,10 +183,10 @@ const Footer = () => {
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 text-white shrink-0"
+                        className="w-5 h-5  shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="currentColor"
+                        stroke="green"
                         strokeWidth={2}
                       >
                         <path
@@ -222,7 +195,7 @@ const Footer = () => {
                           d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                         />
                       </svg>
-                      <span className="text-white transition group-hover:text-white/75">
+                      <span className=" transition group-hover:/75">
                         granthagar@gmail.com
                       </span>
                     </a>
@@ -234,10 +207,10 @@ const Footer = () => {
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-5 h-5 text-white shrink-0"
+                        className="w-5 h-5  shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="currentColor"
+                        stroke="green"
                         strokeWidth={2}
                       >
                         <path
@@ -246,7 +219,7 @@ const Footer = () => {
                           d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                         />
                       </svg>
-                      <span className="text-white transition group-hover:text-white/75">
+                      <span className=" transition group-hover:/75">
                         +8801712345678
                       </span>
                     </a>
@@ -254,10 +227,10 @@ const Footer = () => {
                   <li className="flex items-start justify-center gap-1.5 sm:justify-start">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="w-5 h-5 text-white shrink-0"
+                      className="w-5 h-5  shrink-0"
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke="currentColor"
+                      stroke="green"
                       strokeWidth={2}
                     >
                       <path
@@ -271,7 +244,7 @@ const Footer = () => {
                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                       />
                     </svg>
-                    <address className="-mt-0.5 not-italic text-white">
+                    <address className="-mt-0.5 not-italic ">
                       Dhaka,12200, Read 11
                     </address>
                   </li>
@@ -279,26 +252,26 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="pt-6 mt-12 border-t border-gray-800">
+          <div className="pt-6 mt-12 border-t border-primary">
             <div className="text-center sm:flex sm:justify-between sm:text-left">
-              <p className="text-sm text-gray-400">
+              <p className="text-sm ">
                 <span className="block sm:inline">All rights reserved.</span>
                 <a
-                  className="inline-block text-teal-500 underline transition hover:text-teal-500/75"
+                  className="inline-block bg-primary underline transition "
                   href="/"
                 >
                   Terms &amp; Conditions
                 </a>
                 <span>·</span>
                 <a
-                  className="inline-block text-teal-500 underline transition hover:text-teal-500/75"
+                  className="inline-block bg-primary underline transition "
                   href="/"
                 >
                   Privacy Policy
                 </a>
               </p>
-              <p className="mt-4 text-sm text-gray-500 sm:order-first sm:mt-0">
-                © 2022 Company Name
+              <p className="mt-4 text-sm  sm:order-first sm:mt-0">
+                © {new Date().getFullYear()} Granthagar
               </p>
             </div>
           </div>

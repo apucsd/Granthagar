@@ -23,6 +23,8 @@ export default function RootLayout({
         {children}
         <Footer></Footer>
       </body>
+
+      <script async src="https://cdn.lordicon.com/lordicon.js"></script>
     </html>
   );
 }
