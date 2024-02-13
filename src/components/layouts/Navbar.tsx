@@ -15,6 +15,7 @@ import { Input } from "../ui/input";
 import booksLogo from "@/assets/books.jpg";
 import { Button } from "../ui/button";
 import Headroom from "react-headroom";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 const Navbar = () => {
   const menus = [
     { title: "Home", path: "/" },
@@ -25,13 +26,19 @@ const Navbar = () => {
 
   return (
     <nav className="bg-[#ebefe044]  w-full max-w-7xl mx-auto border-b md:border-0">
-      <div>
-        <NavbarHeader></NavbarHeader>
-      </div>
-
-      <Headroom>
+      <Headroom
+        style={{
+          transition: "all 2s ease-in-out",
+          zIndex: "999",
+          maxWidth: "1280px",
+          margin: "0 auto",
+        }}
+      >
+        <div>
+          <NavbarHeader></NavbarHeader>
+        </div>
         <div
-          className={`px-3 backdrop-blur-sm bg-white/70 h-full flex gap-4 justify-between flex-wrap items-center`}
+          className={`md:px-4 px-10  p-5 md:p-0 backdrop-blur-sm transition-all duration-1000 bg-white/70 h-full flex gap-4 justify-between flex-wrap items-center`}
         >
           <Link className="md:flex relative items-center  hidden" href="/">
             <lord-icon
@@ -97,6 +104,26 @@ const Navbar = () => {
               <NavigationMenuItem>
                 <Button className="font-semibold" variant={"outline"}>
                   <Link href="/sign-in">Sign In</Link>
+                </Button>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Avatar>
+                  {/* <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="@shadcn"
+                  /> */}
+                  <lord-icon
+                    src="https://cdn.lordicon.com/xcxzayqr.json"
+                    trigger="hover"
+                    colors="primary:#16c72e,secondary:#545454"
+                    style={{ width: "50px", height: "50px" }}
+                  ></lord-icon>
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
+                <Button className="font-semibold" variant={"outline"}>
+                  Sign Out
                 </Button>
               </NavigationMenuItem>
             </NavigationMenuList>

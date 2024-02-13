@@ -1,9 +1,10 @@
 import Banner from "@/components/home/Banner";
-import { Button } from "@/components/ui/button";
+import Slider from "@/components/home/Slider";
 
 export default function Home() {
   return (
     <div>
+      <Slider></Slider>
       <Banner></Banner>
     </div>
   );

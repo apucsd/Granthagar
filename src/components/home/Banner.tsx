@@ -9,10 +9,10 @@ import { Button } from "../ui/button";
 const Banner = () => {
   return (
     <Container>
-      <div className=" bg-white py-12 px-10 ">
+      <div className=" bg-white">
         {/* bg-gradient-to-r from-white to-[#259030] */}
         <div className="max-w-7xl max-md:max-w-md mx-auto max-md:text-center">
-          <h2 className="lg:text-6xl md:text-5xl text-3xl font-extrabold lg:!leading-[64px] md:max-w-4xl">
+          <h2 className="md:text-5xl text-3xl mt-10 font-extrabold lg:!leading-[64px] md:max-w-4xl">
             <span className="text-primary">BANGLADESH'S</span> BEST BOOK STORE
             WITH ALL LATEST TITLES
           </h2>
@@ -24,8 +24,14 @@ const Banner = () => {
               </p>
               <div className="mt-12 space-x-4">
                 <Button>Buy Now</Button>
-                <Button>
-                  Visit Map <ArrowRight></ArrowRight>
+                <Button className="gap-1">
+                  Visit Map{" "}
+                  <lord-icon
+                    src="https://cdn.lordicon.com/vduvxizq.json"
+                    trigger="hover"
+                    colors="primary:#fff"
+                    style={{ width: "20px", height: "20px" }}
+                  ></lord-icon>
                 </Button>
               </div>
               <div className="mt-12">

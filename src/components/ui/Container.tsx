@@ -4,7 +4,9 @@ type TContainerProps = {
   children: ReactNode;
 };
 const Container = ({ children }: TContainerProps) => {
-  return <div className=" w-full max-w-7xl mx-auto">{children}</div>;
+  return (
+    <div className=" w-full max-w-7xl mx-auto  md:px-10 px-4">{children}</div>
+  );
 };
 
 export default Container;
