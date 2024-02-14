@@ -107,19 +107,21 @@ const Navbar = () => {
                 </Button>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Avatar>
-                  {/* <AvatarImage
+                <Link href="/login">
+                  <Avatar>
+                    {/* <AvatarImage
                     src="https://github.com/shadcn.png"
                     alt="@shadcn"
                   /> */}
-                  <lord-icon
-                    src="https://cdn.lordicon.com/xcxzayqr.json"
-                    trigger="hover"
-                    colors="primary:#16c72e,secondary:#545454"
-                    style={{ width: "50px", height: "50px" }}
-                  ></lord-icon>
-                  <AvatarFallback>CN</AvatarFallback>
-                </Avatar>
+                    <lord-icon
+                      src="https://cdn.lordicon.com/xcxzayqr.json"
+                      trigger="hover"
+                      colors="primary:#16c72e,secondary:#545454"
+                      style={{ width: "50px", height: "50px" }}
+                    ></lord-icon>
+                    {/* <AvatarFallback>CN</AvatarFallback> */}
+                  </Avatar>
+                </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <Button className="font-semibold" variant={"outline"}>
