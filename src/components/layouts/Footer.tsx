@@ -11,8 +11,8 @@ const Footer = () => {
                 <lord-icon
                   src="https://cdn.lordicon.com/qwjfapmb.json"
                   trigger="hover"
-                  colors="primary:#ebe6ef,secondary:#16c72e,tertiary:#3a3347,quaternary:#f24c00,quinary:#faf9d1"
-                  style={{ width: 100, height: 80 }}
+                  colors="primary:#ebe6ef,secondary:#DD1361,tertiary:#3a3347,quaternary:#f24c00,quinary:#faf9d1"
+                  style={{ width: 80, height: 50 }}
                 ></lord-icon>
                 <p className="font-semibold -ms-5 uppercase">Granthagar</p>
               </Link>
@@ -33,7 +33,7 @@ const Footer = () => {
                     <span className="sr-only">Facebook</span>
                     <svg
                       className="w-6 h-6"
-                      fill="green"
+                      fill="#DD1361"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
                     >
@@ -55,7 +55,7 @@ const Footer = () => {
                     <span className="sr-only">Instagram</span>
                     <svg
                       className="w-6 h-6"
-                      fill="green"
+                      fill="#DD1361"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
                     >
@@ -77,7 +77,7 @@ const Footer = () => {
                     <span className="sr-only">Twitter</span>
                     <svg
                       className="w-6 h-6"
-                      fill="green"
+                      fill="#DD1361"
                       viewBox="0 0 24 24"
                       aria-hidden="true"
                     >
@@ -186,7 +186,7 @@ const Footer = () => {
                         className="w-5 h-5  shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="green"
+                        stroke="#DD1361"
                         strokeWidth={2}
                       >
                         <path
@@ -210,7 +210,7 @@ const Footer = () => {
                         className="w-5 h-5  shrink-0"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke="green"
+                        stroke="#DD1361"
                         strokeWidth={2}
                       >
                         <path
@@ -230,7 +230,7 @@ const Footer = () => {
                       className="w-5 h-5  shrink-0"
                       fill="none"
                       viewBox="0 0 24 24"
-                      stroke="green"
+                      stroke="#DD1361"
                       strokeWidth={2}
                     >
                       <path

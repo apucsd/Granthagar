@@ -1,4 +1,7 @@
+import CategorySidebar from "@/components/layouts/CategorySidebar";
 import Breadcrumbs from "@/components/ui/Breadcrumb";
+import Container from "@/components/ui/Container";
+
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,12 +15,12 @@ export default function BooksLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <Container>
       <Breadcrumbs />
-      <div className="h-screen bg-red-50">
-        sidebar
-        {children}
+      <div className="flex">
+        <CategorySidebar />
+        <div className="w-full">{children}</div>
       </div>
-    </>
+    </Container>
   );
 }

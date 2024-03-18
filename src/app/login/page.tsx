@@ -1,133 +1,108 @@
 "use client";
-import CustomForm from "@/components/ui/CustomForm";
+import Container from "@/components/ui/Container";
 import CustomInput from "@/components/ui/CustomInput";
-/* eslint-disable react/no-unescaped-entities */
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { FieldValues } from "react-hook-form";
-
+import GoogleSvg from "@/svgs/GoogleSvg";
+import Image from "next/image";
+import { useState } from "react";
 const LoginPage = () => {
-  function onSubmit(values: FieldValues) {
-    console.log(values);
-  }
+  const [register, setRegister] = useState(false);
   return (
-    <div className="my-5">
-      <Tabs defaultValue="signUp" className="max-w-md mx-auto">
-        <TabsList className="flex flex-wrap-reverse justify-center items-center gap-4">
-          <TabsTrigger value="signUp">Sign Up</TabsTrigger>
-          <TabsTrigger value="signIn">Sign In</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="signUp">
-          <Card>
-            <CardHeader>
-              <CardTitle>Sign Up</CardTitle>
-              <CardDescription>
-                Welcome to our community! Please fill out the form below to
-                create your account..
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <CustomForm onSubmit={onSubmit}>
-                <div className="space-y-2">
-                  <div className="space-y-1">
-                    <Label htmlFor="email">Email</Label>
-                    <CustomInput
-                      name="email"
-                      type="email"
-                      placeholder="example@gmail.com"
-                    />
-                  </div>
-
-                  <div className="space-y-1">
-                    <Label htmlFor="password">Password</Label>
-                    <CustomInput
-                      name="password"
-                      type="password"
-                      placeholder="******"
-                    />
-                  </div>
-                  <Button type="submit">Sign Up Now</Button>
-                </div>
-              </CustomForm>
-            </CardContent>
-          </Card>
-        </TabsContent>
-        <TabsContent value="signIn">
-          <Card>
-            <CardHeader>
-              <CardTitle>SignIn</CardTitle>
-              <CardDescription>
-                Welcome back! Please enter your credentials below to access your
-                account.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <CustomForm onSubmit={onSubmit}>
-                <div className="space-y-2">
-                  <div className="space-y-1">
-                    <Label htmlFor="email">Email</Label>
-                    <CustomInput
-                      name="email"
-                      type="email"
-                      placeholder="example@gmail.com"
-                    />
-                  </div>
-
-                  <div className="space-y-1">
-                    <Label htmlFor="password">Password</Label>
-                    <CustomInput
-                      name="password"
-                      type="password"
-                      placeholder="******"
-                    />
-                  </div>
-                  <Button type="submit">Sign Up Now</Button>
-                </div>
-              </CustomForm>
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        {/* <div>
-          <button className="bg-white border py-2 w-full rounded-xl my-2 flex gap-3 justify-center items-center text-sm font-medium">
-            <svg
-              class="mr-3"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 48 48"
-              width="25px"
+    <Container>
+      <div className="w-full md:w-96 h-full my-10 lg:w-[800px] mx-auto bg-white flex items-center relative overflow-hidden shadow-xl">
+        {/* register form  */}
+        <form
+          className={`p-8 w-full ${
+            register
+              ? "lg:translate-x-0"
+              : "lg:-translate-x-full hidden lg:block"
+          } duration-500`}
+        >
+          <h1 className="backdrop-blur-sm text-2xl text-primary lg:text-4xl pb-4">
+            Register
+          </h1>
+          <div className="space-y-5">
+            <CustomInput name="name" label="Your Full Name" type="text" />
+            <CustomInput name="email" label="Your Email Address" type="email" />
+            <CustomInput
+              name="password"
+              label="Your password"
+              type="password"
+            />
+          </div>
+          <Button className="my-4 w-full">Register Now</Button>
+          <div className="mb-3 flex items-center justify-center gap-2 text-center">
+            Already have an account?
+            <Button
+              type="button" // Add this line to explicitly set the button type
+              variant="link"
+              onClick={() => {
+                setRegister(!register);
+              }}
+              className="underline font-semibold"
             >
-              <path
-                fill="#FFC107"
-                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
-              ></path>
-              <path
-                fill="#FF3D00"
-                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
-              ></path>
-              <path
-                fill="#4CAF50"
-                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
-              ></path>
-              <path
-                fill="#1976D2"
-                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
-              ></path>
-            </svg>
-            Login with Google
-          </button>
-        </div> */}
-      </Tabs>
-    </div>
+              Login
+            </Button>
+          </div>
+          <hr />
+          <Button
+            variant="secondary"
+            className="w-full items-center hover:text-primary"
+          >
+            <GoogleSvg /> Continue with Google
+          </Button>
+        </form>
+
+        <div
+          className={`hidden lg:block absolute w-1/2 h-full top-0 z-50 duration-500 overflow-hidden bg-black/20 ${
+            register ? "translate-x-full duration-500" : ""
+          }`}
+        >
+          <Image src="/login.svg" className="object-cover h-full" alt="" fill />
+        </div>
+        {/* login form */}
+        <form
+          className={`p-8 w-full mr-0 ml-auto duration-500 ${
+            register ? "lg:translate-x-full hidden lg:block" : ""
+          }`}
+        >
+          <h1 className="backdrop-blur-sm text-2xl text-primary lg:text-4xl pb-4">
+            Login
+          </h1>
+          <div className="space-y-5">
+            <CustomInput name="email" label="Your Email Address" type="email" />
+            <CustomInput
+              name="password"
+              label="Your password"
+              type="password"
+            />
+          </div>
+          <Button type="button" className="my-4 w-full">
+            Login Now
+          </Button>
+          <div className="mb-3 flex justify-center items-center gap-2 text-center">
+            Don&apos;t have an account?
+            <Button
+              type="button"
+              variant="link"
+              onClick={() => {
+                setRegister(!register);
+              }}
+              className="underline font-semibold"
+            >
+              Register
+            </Button>
+          </div>
+
+          <Button
+            variant="secondary"
+            className="w-full items-center hover:text-primary"
+          >
+            <GoogleSvg /> Continue with Google
+          </Button>
+        </form>
+      </div>
+    </Container>
   );
 };
-
 export default LoginPage;

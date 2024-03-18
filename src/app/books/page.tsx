@@ -1,7 +1,15 @@
+import NewBooks from "@/components/home/NewBooks";
 import Container from "@/components/ui/Container";
 
-const BooksPage = () => {
-  return <Container>all books</Container>;
+const AllBooksPage = () => {
+  return (
+    <Container>
+      <NewBooks />
+      <NewBooks />
+      <NewBooks />
+      <NewBooks />
+    </Container>
+  );
 };
 
-export default BooksPage;
+export default AllBooksPage;

@@ -1,20 +1,25 @@
-import { Controller } from "react-hook-form";
-import { Input } from "./input";
-
 type TInputProps = {
   name: string;
   type: string;
-  // label?: string;
   placeholder?: string;
+  label?: string;
 };
-const CustomInput = ({ name, type, placeholder }: TInputProps) => {
+const CustomInput = ({ name, type, label }: TInputProps) => {
   return (
-    <Controller
-      name={name}
-      render={({ field }) => (
-        <Input placeholder={placeholder} {...field} type={type} required />
-      )}
-    />
+    <div className="relative w-full">
+      <input
+        className=" peer border-b border-primary  w-full py-3 text-primary focus:outline-none "
+        name={name}
+        placeholder=""
+        type={type}
+      />
+      <label
+        className="absolute -top-2 left-0 bg-transparent text-xs text-gray-400 duration-300 peer-placeholder-shown:left-0 peer-placeholder-shown:top-[50%] peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:-top-2 peer-focus:-translate-y-0 peer-focus:text-xs peer-focus:text-primary"
+        htmlFor=""
+      >
+        {label}
+      </label>
+    </div>
   );
 };
 
