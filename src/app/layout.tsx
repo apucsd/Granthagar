@@ -3,6 +3,7 @@ import { Kalam } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
+import Provider from "@/lib/Provider";
 
 const inter = Kalam({ subsets: ["devanagari"], weight: "400" });
 
@@ -18,11 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Navbar></Navbar>
-        {children}
-        <Footer></Footer>
-      </body>
+      <Provider>
+        <body className={inter.className}>
+          <Navbar />
+          {children}
+          <Footer />
+        </body>
+      </Provider>
 
       <script async src="https://cdn.lordicon.com/lordicon.js"></script>
     </html>

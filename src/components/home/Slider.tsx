@@ -54,7 +54,7 @@ const Slider = () => {
           <SwiperSlide key={i}>
             <div className="h-[40vh] md:h-[50vh] lg:h-[60vh] w-full m-5">
               <Image
-                layout={"fill"}
+                fill
                 src={item.url}
                 alt=""
                 className="object-center rounded-t"
@@ -64,7 +64,7 @@ const Slider = () => {
         ))}
 
         <div className="mt-5">
-          <SwiperButton></SwiperButton>
+          <SwiperButton />
         </div>
       </Swiper>
     </Container>

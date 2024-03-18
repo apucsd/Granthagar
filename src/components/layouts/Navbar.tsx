@@ -1,27 +1,25 @@
 "use client";
 import Link from "next/link";
-import { Search, ShoppingCart } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { AlignLeft, Search, ShoppingCart, X } from "lucide-react";
 import NavbarHeader from "./NavbarHeader";
-import logo from "/public/granthagar.png";
-import Image from "next/image";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuList,
-  NavigationMenuTrigger,
 } from "../ui/navigation-menu";
 import { Input } from "../ui/input";
-import booksLogo from "@/assets/books.jpg";
 import { Button } from "../ui/button";
 import Headroom from "react-headroom";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Avatar } from "../ui/avatar";
+import { useState } from "react";
 const Navbar = () => {
+  const [showMenu, setShowMenu] = useState(false);
   const menus = [
     { title: "Home", path: "/" },
-    { title: "Blog", path: "/your-path" },
+    { title: "Books", path: "/books" },
     { title: "About Us", path: "/about" },
-    { title: "Contact Us", path: "/your-path" },
+    { title: "Contact Us", path: "/contact-us" },
   ];
 
   return (
@@ -38,64 +36,36 @@ const Navbar = () => {
           <NavbarHeader></NavbarHeader>
         </div>
         <div
-          className={`md:px-4 px-10  p-5 md:p-0 backdrop-blur-sm transition-all duration-1000 bg-white/70 h-full flex gap-4 justify-between flex-wrap items-center`}
+          className={`md:px-10 px-10 py-5  p-5 md:p-0 backdrop-blur-sm transition-all duration-1000 bg-white/70 h-full flex gap-4 md:justify-between justify-center flex-wrap  items-center`}
         >
-          <Link className="md:flex relative items-center  hidden" href="/">
-            <lord-icon
-              src="https://cdn.lordicon.com/qwjfapmb.json"
-              trigger="hover"
-              colors="primary:#ebe6ef,secondary:#16c72e,tertiary:#3a3347,quaternary:#f24c00,quinary:#faf9d1"
-              style={{ width: 100, height: 80 }}
-            ></lord-icon>
-            <p className="font-semibold -ms-5 uppercase">Granthagar</p>
-          </Link>
+          <div className="flex justify-center items-center gap-1">
+            <div
+              onClick={() => setShowMenu(!showMenu)}
+              className="hover:cursor-pointer"
+            >
+              <AlignLeft />
+            </div>
+            <Link className="md:flex  relative items-center  hidden" href="/">
+              <lord-icon
+                src="https://cdn.lordicon.com/qwjfapmb.json"
+                trigger="hover"
+                colors="primary:#ebe6ef,secondary:#DD1361,tertiary:#3a3347,quaternary:#f24c00,quinary:#faf9d1"
+                style={{ width: 80, height: 50 }}
+              ></lord-icon>
+              <p className="font-semibold -ms-5 uppercase">Granthagar</p>
+            </Link>
+          </div>
 
-          <NavigationMenu>
-            <NavigationMenuList className="space-x-5">
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="font-semibold bg-primary text-white">
-                  Menu
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[450px] lg:grid-cols-[.75fr_1fr]">
-                    <li className="row-span-3 flex flex-col gap-4 justify-center items-center">
-                      <p>All Menu Items are here</p>
-                      {menus.map((menu, i) => (
-                        <Link
-                          className="hover:bg-gray-50 w-full p-2 border-b-2"
-                          href={menu.path}
-                          key={i}
-                        >
-                          {menu.title}
-                        </Link>
-                      ))}
-                    </li>
-                    <Image
-                      className="md:block hidden"
-                      src={booksLogo}
-                      width={200}
-                      height={200}
-                      alt="books"
-                    />
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem className="flex relative">
-                <Input
-                  className="lg:w-[500px] md:w-[300px] w-full"
-                  placeholder="Search your favorites books..."
-                />
+          <NavigationMenuItem className="flex relative">
+            <Input
+              className="lg:w-[500px] md:w-[300px] w-full"
+              placeholder="Search your favorites books..."
+            />
 
-                <Button
-                  className="absolute text-sm end-0 px-3 py-0"
-                  type="submit"
-                >
-                  <Search></Search>
-                </Button>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-
+            <Button className="absolute text-sm end-0 px-3 py-0" type="submit">
+              <Search></Search>
+            </Button>
+          </NavigationMenuItem>
           <NavigationMenu>
             <NavigationMenuList className="space-x-5">
               <NavigationMenuItem>
@@ -116,7 +86,7 @@ const Navbar = () => {
                     <lord-icon
                       src="https://cdn.lordicon.com/xcxzayqr.json"
                       trigger="hover"
-                      colors="primary:#16c72e,secondary:#545454"
+                      colors="primary:#DD1361,secondary:#545454"
                       style={{ width: "50px", height: "50px" }}
                     ></lord-icon>
                     {/* <AvatarFallback>CN</AvatarFallback> */}
@@ -132,6 +102,49 @@ const Navbar = () => {
           </NavigationMenu>
         </div>
       </Headroom>
+
+      {/* menu items here */}
+
+      <AnimatePresence>
+        {showMenu && (
+          <motion.div
+            initial={{ x: "-100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "-100%" }}
+            transition={{
+              type: "spring",
+              bounce: 0,
+              duration: 0.8,
+            }}
+            className="fixed z-[99999] bg-primary text-white shadow-lg top-0 left-0 w-full max-w-[280px] p-5"
+          >
+            <div className="flex w-full  text-end justify-end">
+              <button
+                onClick={() => setShowMenu(!showMenu)}
+                className="bg-white hover:cursor-pointer w-10 text-gray-700 text-lg block rounded-full"
+              >
+                X
+              </button>
+            </div>
+            <div>
+              {/* all link */}
+              <hr className="my-4" />
+              <motion.ul className="flex uppercase flex-col items-center h-screen gap-10 justify-start">
+                {menus.map((menu, i) => (
+                  <Link
+                    className="hover:border-b  transition-all duration-300"
+                    key={i}
+                    href={menu.path}
+                    onClick={() => setShowMenu(!showMenu)}
+                  >
+                    {menu.title}
+                  </Link>
+                ))}
+              </motion.ul>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
