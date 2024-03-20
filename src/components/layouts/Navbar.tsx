@@ -68,14 +68,12 @@ const Navbar = () => {
           </NavigationMenuItem>
           <NavigationMenu>
             <NavigationMenuList className="space-x-5">
-              <NavigationMenuItem>
-                <ShoppingCart></ShoppingCart>
+              <NavigationMenuItem className="hover:cursor-pointer">
+                <Link href="/cart">
+                  <ShoppingCart></ShoppingCart>
+                </Link>
               </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Button className="font-semibold" variant={"outline"}>
-                  <Link href="/sign-in">Sign In</Link>
-                </Button>
-              </NavigationMenuItem>
+
               <NavigationMenuItem>
                 <Link href="/login">
                   <Avatar>

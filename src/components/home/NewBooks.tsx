@@ -76,7 +76,7 @@ const NewBooks = () => {
     <Container>
       <h1 className="text-4xl font-semibold text-primary my-3">New Books</h1>
       <hr className="h-0.5 bg-primary w-full" />
-      <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3  lg:grid-cols-5 justify-center items-center gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3  lg:grid-cols-5 place-items-center justify-center items-center gap-3">
         {booksData.map((book) => (
           <BookCard key={book.id} {...book} />
         ))}

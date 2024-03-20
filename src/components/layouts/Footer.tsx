@@ -1,10 +1,12 @@
+import Image from "next/image";
 import Container from "../ui/Container";
 import Link from "next/link";
+import sslCom from "@/assets/ssl.jpg";
 const Footer = () => {
   return (
     <Container>
       <footer className=" p-5 border-t border-primary">
-        <div className=" pt-16 pb-6 mx-auto">
+        <div className=" mx-auto">
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             <div>
               <Link className="md:flex relative items-center  hidden" href="/">
@@ -17,11 +19,7 @@ const Footer = () => {
                 <p className="font-semibold -ms-5 uppercase">Granthagar</p>
               </Link>
 
-              <p className="max-w-md mx-auto mt-6 leading-relaxed text-center  sm:max-w-xs sm:mx-0 sm:text-left">
-                Granthagar is the fastest online Books Delivery site. It also
-                works with stationary and electronics items. It Delivers all
-                over the country.
-              </p>
+              <Image height={300} width={400} src={sslCom} alt="" />
               <ul className="flex justify-center gap-6 mt-8 md:gap-8 sm:justify-start">
                 <li>
                   <a

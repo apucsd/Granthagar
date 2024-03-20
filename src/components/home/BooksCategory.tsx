@@ -75,7 +75,7 @@ const BooksCategory = () => {
 
   return (
     <Container>
-      <div className="">
+      <div className="my-10">
         <Swiper
           breakpoints={{
             0: {

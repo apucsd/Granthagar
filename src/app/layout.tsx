@@ -20,11 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Provider>
-        <body className={inter.className}>
-          <Navbar />
-          {children}
-          <Footer />
-        </body>
+        <body className={inter.className}>{children}</body>
       </Provider>
 
       <script async src="https://cdn.lordicon.com/lordicon.js"></script>

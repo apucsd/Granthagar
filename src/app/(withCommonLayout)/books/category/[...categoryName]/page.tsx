@@ -1,4 +1,4 @@
-const CategoryPage = ({ params }) => {
+const CategoryPage = ({ params }: { params: any }) => {
   console.log(params.categoryName);
   return (
     <div>
