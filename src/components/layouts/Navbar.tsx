@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { AlignLeft, Search, ShoppingCart, X } from "lucide-react";
+import { AlignLeft, Search, ShoppingCart } from "lucide-react";
 import NavbarHeader from "./NavbarHeader";
 import {
   NavigationMenu,
@@ -23,7 +23,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-[#ebefe044]  w-full max-w-7xl mx-auto border-b md:border-0">
+    <nav className="bg-[#ebefe044] relative  w-full max-w-7xl mx-auto border-b md:border-0">
       <Headroom
         style={{
           transition: "all 2s ease-in-out",

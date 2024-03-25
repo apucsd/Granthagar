@@ -1,15 +1,19 @@
-import NewBooks from "@/components/home/NewBooks";
+import FilterOptions from "@/components/layouts/FilterOptions";
+import Breadcrumbs from "@/components/ui/Breadcrumb";
 import Container from "@/components/ui/Container";
+import React from "react";
 
-const AllBooksPage = () => {
+const AllBooks = ({ params, searchParams }) => {
+  console.log(searchParams);
   return (
     <Container>
-      <NewBooks />
-      <NewBooks />
-      <NewBooks />
-      <NewBooks />
+      <Breadcrumbs />
+      <div className="flex gap-5">
+        <FilterOptions />
+        <div className="w-full px-5">all data hsow hre</div>
+      </div>
     </Container>
   );
 };
 
-export default AllBooksPage;
+export default AllBooks;
