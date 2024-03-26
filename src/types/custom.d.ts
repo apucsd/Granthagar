@@ -1,10 +1,5 @@
-// In a file, for example, custom.d.ts
-import React from "react";
-
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      "lord-icon": any;
-    }
+declare namespace JSX {
+  interface IntrinsicElements {
+    "lord-icon": any; // You can use 'any' if you don't want to specify detailed props
   }
 }

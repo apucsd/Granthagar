@@ -53,7 +53,7 @@ const Navbar = () => {
                 trigger="hover"
                 colors="primary:#ebe6ef,secondary:#DD1361,tertiary:#3a3347,quaternary:#f24c00,quinary:#faf9d1"
                 style={{ width: 80, height: 50 }}
-              ></lord-icon>
+              />
               <p className="font-semibold -ms-5 uppercase">Granthagar</p>
             </Link>
           </div>

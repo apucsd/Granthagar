@@ -6,7 +6,7 @@ const Breadcrumbs = () => {
   const paths = usePathname();
   const pathNames = paths.split("/").filter((path) => path);
   return (
-    <div className="text-primary font-semibold my-10">
+    <div className="text-primary font-semibold my-5">
       <ul className={"flex justify-start gap-1"}>
         <li className={""}>
           <Link className="capitalize" href={"/"}>

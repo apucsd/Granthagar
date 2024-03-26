@@ -31,11 +31,11 @@ const writers = [
 ];
 
 const years = [
-  { id: 1, publishYear: "2025" },
-  { id: 2, publishYear: "2024" },
-  { id: 3, publishYear: "2023" },
-  { id: 4, publishYear: "2022" },
-  { id: 5, publishYear: "2021" },
+  { id: 1, publicationYear: 2025 },
+  { id: 2, publicationYear: 2024 },
+  { id: 3, publicationYear: 2023 },
+  { id: 4, publicationYear: 2022 },
+  { id: 5, publicationYear: 2021 },
 ];
 const categories = [
   { id: 1, category: "Fiction" },
@@ -51,10 +51,13 @@ const categories = [
 ];
 
 const FilterOptions = () => {
-  const handleFilter = (filterQuery: string) => {
+  const handleFilter = (filterQuery: string | number) => {
+    console.log(filterQuery);
+    if (typeof filterQuery === "number") {
+      return (window.location.href = `/books?publicationYear=${filterQuery}`);
+    }
     // Split author name by spaces
     const filterQueryParts = filterQuery.split(/[-\s]+/);
-    console.log(filterQueryParts);
 
     const query = filterQueryParts
       .map((part: string) => `searchTerm=${part}`)
@@ -115,15 +118,20 @@ const FilterOptions = () => {
           <AccordionTrigger className="font-semibold">
             Choose Publish Year
           </AccordionTrigger>
-          {years.map((publishYear) => (
-            <AccordionContent key={publishYear.id}>
+          {years.map((publicationYear) => (
+            <AccordionContent key={publicationYear.id}>
               <div className="flex items-center space-x-3">
                 <Checkbox
-                  onClick={() => handleFilter(publishYear.publishYear)}
-                  id={publishYear.publishYear}
+                  onClick={() =>
+                    handleFilter(publicationYear.publicationYear as number)
+                  }
+                  id={publicationYear.publicationYear.toString()}
                 />
-                <Label className="truncate" htmlFor={publishYear.publishYear}>
-                  {publishYear.publishYear}
+                <Label
+                  className="truncate"
+                  htmlFor={publicationYear.publicationYear.toString()}
+                >
+                  {publicationYear.publicationYear}
                 </Label>
               </div>
             </AccordionContent>

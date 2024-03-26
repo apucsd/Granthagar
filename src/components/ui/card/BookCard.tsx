@@ -2,32 +2,21 @@ import Image from "next/image";
 import { Button } from "../button";
 import Link from "next/link";
 import { ShoppingCart } from "lucide-react";
-type TBook = {
-  id: number;
-  title: string;
-  author: string;
-  category: string;
-  authorName: string;
-  publicationDate: string;
-  bookLanguage: string;
-  image_url: string;
-  price: number;
-  original_price: number;
-};
+import { TBook } from "@/types/index.type";
 
-const BookCard = ({ id, image_url, title, price, original_price }: TBook) => {
+const BookCard = ({ _id, title, image, price }: Partial<TBook>) => {
   return (
     <div className="group border-gray-100/30 flex h-full w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-white shadow-md">
       <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
         <Image
           className="peer absolute top-0 right-0 h-full w-full object-cover"
-          src={image_url}
+          src={image as string}
           alt="product image"
           fill
         />
         <div className="peer peer-hover:right-0 bg-primary/10 flex justify-center items-center absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-300 hover:right-0">
           <Button>
-            <Link href={`/books/${id}`}>Quick View</Link>
+            <Link href={`/books/${_id}`}>Quick View</Link>
           </Button>
         </div>
 
@@ -43,7 +32,7 @@ const BookCard = ({ id, image_url, title, price, original_price }: TBook) => {
           <p>
             <span className="text-3xl font-bold">৳{price}</span>
             <span className="text-sm line-through text-red-600">
-              ৳{original_price}
+              ৳{(price! * 0.1).toFixed(2)}
             </span>
           </p>
         </div>
