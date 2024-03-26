@@ -11,9 +11,11 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Headroom from "react-headroom";
-import { Avatar } from "../ui/avatar";
 import { useState } from "react";
+import dynamic from "next/dynamic";
 const Navbar = () => {
+  const AuthButton = dynamic(() => import("./AuthButton"), { ssr: false });
+
   const [showMenu, setShowMenu] = useState(false);
   const menus = [
     { title: "Home", path: "/" },
@@ -73,29 +75,7 @@ const Navbar = () => {
                   <ShoppingCart></ShoppingCart>
                 </Link>
               </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link href="/login">
-                  <Avatar>
-                    {/* <AvatarImage
-                    src="https://github.com/shadcn.png"
-                    alt="@shadcn"
-                  /> */}
-                    <lord-icon
-                      src="https://cdn.lordicon.com/xcxzayqr.json"
-                      trigger="hover"
-                      colors="primary:#DD1361,secondary:#545454"
-                      style={{ width: "50px", height: "50px" }}
-                    ></lord-icon>
-                    {/* <AvatarFallback>CN</AvatarFallback> */}
-                  </Avatar>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Button className="font-semibold" variant={"outline"}>
-                  Sign Out
-                </Button>
-              </NavigationMenuItem>
+              <AuthButton />
             </NavigationMenuList>
           </NavigationMenu>
         </div>
