@@ -13,63 +13,63 @@ const BooksCategory = () => {
       category: "Literature",
       image_url:
         "https://bdbooks.net/uploads/category/2024/03/05/Standardized-tests1709609015.webp",
-      link: "/literature",
+      link: "/books?searchTerm=literature",
     },
     {
       id: 3,
       category: "Religion",
       image_url:
         "https://bdbooks.net/uploads/category/2022/09/17/Religious_Books1663391856.webp",
-      link: "/religion",
+      link: "/books?searchTerm=religion",
     },
     {
       id: 5,
       category: "Education and Academic",
       image_url:
         "https://bdbooks.net/uploads/category/2024/03/04/Junior-secondary1709553582.webp",
-      link: "/education-academic",
+      link: "/books?searchTerm=education-academic",
     },
     {
       id: 6,
       category: "Science",
       image_url:
         "https://bdbooks.net/uploads/category/2024/01/09/Career-and-Skill-Development1704778490.webp",
-      link: "/science",
+      link: "/books?searchTerm=science",
     },
     {
       id: 7,
       category: "Kids' Books",
       image_url:
         "https://bdbooks.net/uploads/category/2023/11/29/Kids_&_Children_s1701255990.webp",
-      link: "/kids-books",
+      link: "/books?searchTerm=kids-books",
     },
     {
       id: 8,
       category: "Magazines",
       image_url:
         "https://bdbooks.net/uploads/category/2023/11/29/Magazine1701255758.webp",
-      link: "/magazines",
+      link: "/books?searchTerm=magazines",
     },
     {
       id: 9,
       category: "Medical Books",
       image_url:
         "https://bdbooks.net/uploads/category/2022/09/17/Medical_Academic_Books1663394058.webp",
-      link: "/medical-books",
+      link: "/books?searchTerm=medical-books",
     },
     {
       id: 10,
       category: "Diploma",
       image_url:
         "https://bdbooks.net/uploads/category/2024/03/04/Diploma1709554274.webp",
-      link: "/diploma",
+      link: "/books?searchTerm=diploma",
     },
     {
       id: 11,
       category: "Textbooks",
       image_url:
         "https://bdbooks.net/uploads/category/2023/11/29/SSC_Dakhil_Books1701255790.webp",
-      link: "/textbooks",
+      link: "/books?searchTerm=textbooks",
     },
   ];
 
@@ -102,7 +102,7 @@ const BooksCategory = () => {
           {booksCategories.map((item, i) => (
             <SwiperSlide key={i}>
               <Link
-                href={`books/category${item.link}`}
+                href={`${item.link}`}
                 className="hover:text-primary hover:cursor-pointer text-gray-700"
               >
                 <Image

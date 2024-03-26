@@ -19,7 +19,7 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const menus = [
     { title: "Home", path: "/" },
-    { title: "Books Category", path: "/books/category" },
+    { title: "All Books", path: "/books" },
     { title: "About Us", path: "/about" },
     { title: "Contact Us", path: "/contact-us" },
   ];
