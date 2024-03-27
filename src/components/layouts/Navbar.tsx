@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlignLeft, Search, ShoppingCart } from "lucide-react";
-import NavbarHeader from "./NavbarHeader";
+// import NavbarHeader from "./NavbarHeader";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -25,7 +25,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-[#ebefe044] relative  w-full max-w-7xl mx-auto border-b md:border-0">
+    <nav className="bg-[#ebefe044] relative h-full   w-full max-w-7xl mx-auto border-b md:border-0">
       <Headroom
         style={{
           transition: "all 2s ease-in-out",
@@ -34,11 +34,9 @@ const Navbar = () => {
           margin: "0 auto",
         }}
       >
-        <div>
-          <NavbarHeader></NavbarHeader>
-        </div>
+        <div>{/* <NavbarHeader></NavbarHeader> */}</div>
         <div
-          className={`md:px-10 px-10 py-5  p-5 md:p-0 backdrop-blur-sm transition-all duration-1000 bg-white/70 h-full flex gap-4 md:justify-between justify-center flex-wrap  items-center`}
+          className={`md:px-10 px-10 md:py-2  p-5 md:p-0 backdrop-blur-sm transition-all duration-1000 bg-white/70 h-full flex gap-4 md:justify-between justify-center flex-wrap  items-center`}
         >
           <div className="flex justify-center items-center gap-1">
             <div

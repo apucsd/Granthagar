@@ -2,6 +2,7 @@ import FilterOptions from "@/components/layouts/FilterOptions";
 import Breadcrumbs from "@/components/ui/Breadcrumb";
 import Container from "@/components/ui/Container";
 import FilterByDate from "@/components/ui/FilterByDate";
+import NotFoundProduct from "@/components/ui/NotFoundProduct";
 import BookLargeCard from "@/components/ui/card/BookLargeCard";
 import { getBooksByQuery } from "@/services/bookActions/getBookByQuery";
 import { TBook } from "@/types/index.type";
@@ -21,9 +22,15 @@ const AllBooks = async ({ searchParams }: { searchParams: any }) => {
           </div>
 
           <div>
-            {data.map((singleBook: TBook) => (
-              <BookLargeCard {...singleBook} key={singleBook._id} />
-            ))}
+            {data.length > 0 ? (
+              <div>
+                {data.map((singleBook: TBook) => (
+                  <BookLargeCard {...singleBook} key={singleBook._id} />
+                ))}
+              </div>
+            ) : (
+              <NotFoundProduct />
+            )}
           </div>
         </div>
       </div>

@@ -53,16 +53,11 @@ const BookLargeCard = ({
         <div className="flex justify-between flex-wrap gap-4 items-center">
           <div className="space-y-2">
             <p className="text-slate-700">Written By</p>
-            <p className="font-semibold">
-              {" "}
-              {authors?.map((author) => (
-                <>{author}, </>
-              ))}
-            </p>
+            <p className="font-semibold truncate">{authors![0]}</p>
           </div>
           <div className="space-y-2">
             <p className="text-slate-700">Publisher</p>
-            <p className="font-semibold">{publisher}</p>
+            <p className="font-semibold truncate">{publisher}</p>
           </div>
           <div className="space-y-2">
             <p className="text-slate-700">Year</p>

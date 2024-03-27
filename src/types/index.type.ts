@@ -1,7 +1,7 @@
 export interface TBook {
   _id: string;
   title: string;
-  authors?: string[] | null;
+  authors: string[];
   isbn: string;
   publisher: string;
   publicationYear: number;

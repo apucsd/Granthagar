@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import { Label } from "../ui/label";
 import { Checkbox } from "../ui/checkbox";
+import { useRouter } from "next/navigation";
 const writers = [
   {
     id: 1,
@@ -40,9 +41,9 @@ const years = [
 const categories = [
   { id: 1, category: "Fiction" },
   { id: 2, category: "Mystery" },
-  { id: 3, category: "Science-Fiction" },
+  { id: 3, category: "Science" },
   { id: 4, category: "Fantasy" },
-  { id: 5, category: "Historical-Fiction" },
+  { id: 5, category: "Historical" },
   { id: 6, category: "Romance" },
   { id: 7, category: "Thriller" },
   { id: 8, category: "Non-fiction" },
@@ -51,29 +52,27 @@ const categories = [
 ];
 
 const FilterOptions = () => {
+  const router = useRouter();
   const handleFilter = (filterQuery: string | number) => {
     console.log(filterQuery);
     if (typeof filterQuery === "number") {
-      return (window.location.href = `/books?publicationYear=${filterQuery}`);
+      return router.push(`/books?publicationYear=${filterQuery}`);
     }
     // Split author name by spaces
-    const filterQueryParts = filterQuery.split(/[-\s]+/);
+    // const filterQueryParts = filterQuery.split(/[-\s]+/);
 
-    const query = filterQueryParts
-      .map((part: string) => `searchTerm=${part}`)
-      .join("&");
+    // const query = filterQueryParts
+    //   .map((part: string) => `searchTerm=${part}`)
+    //   .join("&");
 
-    // Navigate to the books page with the constructed author query parameter
-
-    window.location.href = `/books?${query}`;
+    return router.push(`/books?searchTerm=${filterQuery}`);
   };
   return (
-    <div className="w-[30%] hidden md:block h-screen">
+    <div className="w-[30%] hidden md:block min-h-screen">
       <h2 className="text-2xl my-2 font-semibold">Filter Options</h2>
       <Accordion
-        defaultValue="item-1"
-        type="single"
-        collapsible
+        defaultValue={["item-1", "item-2"]}
+        type="multiple"
         className="w-full"
       >
         <AccordionItem value="item-1">
@@ -88,7 +87,10 @@ const FilterOptions = () => {
                     onClick={() => handleFilter(category.category)}
                     id={category.category}
                   />
-                  <Label className="truncate" htmlFor={category.category}>
+                  <Label
+                    className="hover:cursor-pointer truncate"
+                    htmlFor={category.category}
+                  >
                     {category.category}
                   </Label>
                 </div>
@@ -107,7 +109,10 @@ const FilterOptions = () => {
                   onClick={() => handleFilter(writer.authorName)}
                   id={writer.authorName}
                 />
-                <Label className="truncate" htmlFor={writer.authorName}>
+                <Label
+                  className="hover:cursor-pointer truncate"
+                  htmlFor={writer.authorName}
+                >
                   {writer.authorName}
                 </Label>
               </div>
