@@ -52,7 +52,7 @@ const Slider = () => {
       >
         {data.map((item, i) => (
           <SwiperSlide key={i}>
-            <div className="h-[40vh] md:h-[50vh] lg:h-[60vh] w-full m-5">
+            <div className="h-[40vh] md:h-[40vh] lg:h-[50vh] w-full m-5">
               <Image
                 fill
                 src={item.url}

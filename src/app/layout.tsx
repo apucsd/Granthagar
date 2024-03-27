@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Kalam } from "next/font/google";
+import { Cairo } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import Provider from "@/lib/Provider";
 
-const inter = Kalam({ subsets: ["devanagari"], weight: "400" });
+const cairo = Cairo({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Granthagar",
@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Provider>
-        <body className={inter.className}>
+        <body className={cairo.className}>
           {children}
 
           <Toaster position="top-right" expand={true} richColors />

@@ -21,8 +21,8 @@ const NewBooks = async () => {
           </Button>
         </Link>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3  lg:grid-cols-5 place-items-center justify-center items-center gap-3">
-        {newBooks.slice(0, 4).map((book: TBook) => (
+      <div className="grid grid-cols-1  sm:grid-cols-2  md:grid-cols-5 place-items-center  gap-3">
+        {newBooks.slice(0, 5).map((book: TBook) => (
           <BookCard key={book._id} {...book} />
         ))}
       </div>

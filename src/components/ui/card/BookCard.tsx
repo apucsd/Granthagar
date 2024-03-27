@@ -6,8 +6,11 @@ import { TBook } from "@/types/index.type";
 
 const BookCard = ({ _id, title, image, price }: Partial<TBook>) => {
   return (
-    <div className="group border-gray-100/30 flex h-full w-full max-w-xs flex-col self-center overflow-hidden rounded-lg border bg-white shadow-md">
-      <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
+    <div
+      // style={{ minHeight: "100%" }}
+      className="group border-gray-100/30 relative h-full flex  w-full  flex-col justify-center self-center overflow-hidden rounded-lg border bg-white shadow-md"
+    >
+      <div className="relative mx-3 mt-3 flex h-52 overflow-hidden rounded-xl">
         <Image
           className="peer absolute top-0 right-0 h-full w-full object-cover"
           src={image as string}
@@ -24,7 +27,7 @@ const BookCard = ({ _id, title, image, price }: Partial<TBook>) => {
           Sale
         </span>
       </div>
-      <div className="mt-4 px-5 pb-5">
+      <div className="mt-4 flex flex-col flex-grow px-5 pb-5">
         <div>
           <h5 className="text-xl tracking-tight ">{title}</h5>
         </div>
@@ -36,7 +39,7 @@ const BookCard = ({ _id, title, image, price }: Partial<TBook>) => {
             </span>
           </p>
         </div>
-        <Button className="gap-2 w-full">
+        <Button className="gap-2 mt-auto w-full">
           <ShoppingCart />
           Add to cart
         </Button>
