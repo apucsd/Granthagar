@@ -5,16 +5,34 @@ import {
   SubmitHandler,
   useForm,
 } from "react-hook-form";
-
+type TFormConfig = {
+  resolver?: any;
+  defaultValues?: Record<string, any>;
+};
 type TCustomFormProps = {
   onSubmit: SubmitHandler<FieldValues>;
   children: ReactNode;
-};
-const CustomForm = ({ onSubmit, children }: TCustomFormProps) => {
-  const methods = useForm();
+} & TFormConfig;
+const CustomForm = ({
+  onSubmit,
+  children,
+  resolver,
+  defaultValues,
+}: TCustomFormProps) => {
+  const formConfig: TFormConfig = {};
+  if (resolver) {
+    formConfig["resolver"] = resolver;
+  }
+  if (defaultValues) {
+    formConfig["defaultValues"] = defaultValues;
+  }
+  const methods = useForm(formConfig);
+  const submitHandler = (data: FieldValues) => {
+    onSubmit(data);
+  };
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>{children}</form>
+      <form onSubmit={methods.handleSubmit(submitHandler)}>{children}</form>
     </FormProvider>
   );
 };

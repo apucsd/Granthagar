@@ -20,6 +20,11 @@ const NavigationMenuNav = () => {
             <Link href="/">Home</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
+        <NavigationMenuItem className="border-r p-2">
+          <NavigationMenuLink className="bg-transparent">
+            <Link href="/books">Books</Link>
+          </NavigationMenuLink>
+        </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent border-r text-[16px] p-2">
             Category

@@ -7,11 +7,13 @@ import { loginUser } from "@/services/authActions/loginUser";
 import { registerUser } from "@/services/authActions/registerUser";
 import { storeUserInfo } from "@/services/auth.services";
 // import GoogleSvg from "@/svgs/GoogleSvg";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
+import { loginSchema, registerSchema } from "@/schema/validation.schema";
 
 const LoginPage = () => {
   const router = useRouter();
@@ -19,11 +21,6 @@ const LoginPage = () => {
   // REGISTER USER FUNCTION
   const handleRegister = async (data: FieldValues) => {
     try {
-      if (data.password.length < 6) {
-        return toast.error("Password must be at least 6 characters", {
-          duration: 2000,
-        });
-      }
       const res = await registerUser(data);
       if (res.success) {
         toast.success("Your account has created successfully", {
@@ -87,7 +84,15 @@ const LoginPage = () => {
           <h1 className="backdrop-blur-sm text-2xl text-primary lg:text-4xl pb-4">
             Register
           </h1>
-          <CustomForm onSubmit={handleRegister}>
+          <CustomForm
+            onSubmit={handleRegister}
+            resolver={zodResolver(registerSchema)}
+            defaultValues={{
+              name: "",
+              email: "",
+              password: "",
+            }}
+          >
             <div className="space-y-5">
               <CustomInput
                 name="name"
@@ -150,19 +155,24 @@ const LoginPage = () => {
           <h1 className="backdrop-blur-sm text-2xl text-primary lg:text-4xl pb-4">
             Login
           </h1>
-          <CustomForm onSubmit={handleLogin}>
+          <CustomForm
+            onSubmit={handleLogin}
+            resolver={zodResolver(loginSchema)}
+            defaultValues={{
+              email: "",
+              password: "",
+            }}
+          >
             <div className="space-y-5">
               <CustomInput
                 name="email"
                 label="Your Email Address"
                 type="email"
-                required
               />
               <CustomInput
                 name="password"
                 label="Your password"
                 type="password"
-                required
               />
             </div>
             <Button type="submit" className="my-4 w-full">
