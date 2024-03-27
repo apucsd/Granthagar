@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Cairo } from "next/font/google";
+import { Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import Provider from "@/lib/Provider";
 
-const cairo = Cairo({ subsets: ["latin"], weight: "400" });
+const hind_Siliguri = Hind_Siliguri({ subsets: ["bengali"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Granthagar",
@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Provider>
-        <body className={cairo.className}>
+        <body className={hind_Siliguri.className}>
           {children}
 
           <Toaster position="top-right" expand={true} richColors />

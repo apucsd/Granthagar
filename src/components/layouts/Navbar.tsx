@@ -13,7 +13,11 @@ import { Button } from "../ui/button";
 import Headroom from "react-headroom";
 import { useState } from "react";
 import dynamic from "next/dynamic";
+// import { NavigationMenuNav } from "./NavigationMenu";
 const Navbar = () => {
+  const NavigationMenuNav = dynamic(() => import("./NavigationMenuNav"), {
+    ssr: false,
+  });
   const AuthButton = dynamic(() => import("./AuthButton"), { ssr: false });
 
   const [showMenu, setShowMenu] = useState(false);
@@ -36,34 +40,36 @@ const Navbar = () => {
       >
         <div>{/* <NavbarHeader></NavbarHeader> */}</div>
         <div
-          className={`md:px-10 px-10 md:py-2  p-5 md:p-0 backdrop-blur-sm transition-all duration-1000 bg-white/70 h-full flex gap-4 md:justify-between justify-center flex-wrap  items-center`}
+          className={`md:px-10 px-10 md:py-2  p-5 md:p-0 backdrop-blur-sm transition-all duration-1000 bg-white/70 h-full flex gap-4 justify-between  flex-wrap  items-center`}
         >
           <div className="flex justify-center items-center gap-1">
             <div
               onClick={() => setShowMenu(!showMenu)}
-              className="hover:cursor-pointer"
+              className="hover:cursor-pointer block md:hidden"
             >
               <AlignLeft />
             </div>
-            <Link className="md:flex  relative items-center  hidden" href="/">
+            <Link className="md:flex  relative items-center " href="/">
               <lord-icon
                 src="https://cdn.lordicon.com/qwjfapmb.json"
                 trigger="hover"
                 colors="primary:#ebe6ef,secondary:#DD1361,tertiary:#3a3347,quaternary:#f24c00,quinary:#faf9d1"
                 style={{ width: 80, height: 50 }}
               />
-              <p className="font-semibold -ms-5 uppercase">Granthagar</p>
+              <p className="font-semibold hidden md:block -ms-5 uppercase">
+                Granthagar
+              </p>
             </Link>
           </div>
 
-          <NavigationMenuItem className="flex relative">
+          <NavigationMenuItem className="hidden md:flex  relative">
             <Input
               className="lg:w-[500px] md:w-[300px] w-full"
               placeholder="Search your favorites books..."
             />
 
             <Button className="absolute text-sm end-0 px-3 py-0" type="submit">
-              <Search></Search>
+              <Search />
             </Button>
           </NavigationMenuItem>
           <NavigationMenu>
@@ -78,7 +84,9 @@ const Navbar = () => {
           </NavigationMenu>
         </div>
       </Headroom>
-
+      <div className="hidden md:block md:px-10  px-10 md:py-2 border-t  p-5  transition-all h-full">
+        <NavigationMenuNav />
+      </div>
       {/* menu items here */}
 
       <AnimatePresence>
