@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { loginUser } from "@/services/authActions/loginUser";
 import { registerUser } from "@/services/authActions/registerUser";
 import { storeUserInfo } from "@/services/auth.services";
-import GoogleSvg from "@/svgs/GoogleSvg";
+// import GoogleSvg from "@/svgs/GoogleSvg";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -126,12 +126,12 @@ const LoginPage = () => {
             </Button>
           </div>
           <hr />
-          <Button
+          {/* <Button
             variant="secondary"
             className="w-full items-center hover:text-primary"
           >
             <GoogleSvg /> Continue with Google
-          </Button>
+          </Button> */}
         </div>
 
         <div
@@ -182,12 +182,12 @@ const LoginPage = () => {
               Register
             </Button>
           </div>
-          <Button
+          {/* <Button
             variant="secondary"
             className="w-full items-center hover:text-primary"
           >
             <GoogleSvg /> Continue with Google
-          </Button>
+          </Button> */}
         </div>
       </div>
     </Container>

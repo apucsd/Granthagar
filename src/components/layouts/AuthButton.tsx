@@ -4,6 +4,7 @@ import { NavigationMenuItem } from "../ui/navigation-menu";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { getUserInfo, loginOutUser } from "@/services/auth.services";
 import { useRouter } from "next/navigation";
+import { User2Icon } from "lucide-react";
 
 const AuthButton = () => {
   const router = useRouter();
@@ -31,7 +32,9 @@ const AuthButton = () => {
           <NavigationMenuItem>
             <Link href="/login">
               <Avatar>
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarFallback>
+                  <User2Icon />
+                </AvatarFallback>
               </Avatar>
             </Link>
           </NavigationMenuItem>

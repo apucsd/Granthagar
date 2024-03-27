@@ -16,10 +16,10 @@ const BookLargeCard = ({
 }: Partial<TBook>) => {
   return (
     <div className="grid gap-5 grid-cols-12 place-items-center  bg-white shadow-xl border p-4 rounded-md">
-      <div className="col-span-12 md:col-span-3">
+      <div className="col-span-12 md:col-span-3 relative">
         <Image
-          height={180}
-          width={180}
+          height={300}
+          width={500}
           src={image ? image : defaultImage}
           alt="books"
           className="rounded-xl w-full object-contain h-full"

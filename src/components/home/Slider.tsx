@@ -2,7 +2,6 @@
 "use client";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperButton from "@/components/ui/SwiperButton";
 // Import Swiper styles
 import "swiper/css";
 
@@ -62,10 +61,6 @@ const Slider = () => {
             </div>
           </SwiperSlide>
         ))}
-
-        <div className="mt-5">
-          <SwiperButton />
-        </div>
       </Swiper>
     </Container>
   );
