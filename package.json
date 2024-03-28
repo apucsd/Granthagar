@@ -24,6 +24,7 @@
     "framer-motion": "^11.0.22",
     "init": "^0.1.2",
     "jwt-decode": "^4.0.0",
+    "lodash": "^4.17.21",
     "lord-icon-element": "^4.1.2",
     "lucide-react": "^0.321.0",
     "next": "14.1.0",
@@ -39,6 +40,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

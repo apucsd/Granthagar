@@ -1,18 +1,18 @@
 "use client";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { AlignLeft, Search, ShoppingCart } from "lucide-react";
+import { AlignLeft, ShoppingCart } from "lucide-react";
 // import NavbarHeader from "./NavbarHeader";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
 } from "../ui/navigation-menu";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
+
 import Headroom from "react-headroom";
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import SearchBook from "../ui/SearchBook";
 // import { NavigationMenuNav } from "./NavigationMenu";
 const Navbar = () => {
   const NavigationMenuNav = dynamic(() => import("./NavigationMenuNav"), {
@@ -62,16 +62,7 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <NavigationMenuItem className="hidden md:flex  relative">
-            <Input
-              className="lg:w-[500px] md:w-[300px] w-full"
-              placeholder="Search your favorites books..."
-            />
-
-            <Button className="absolute text-sm end-0 px-3 py-0" type="submit">
-              <Search />
-            </Button>
-          </NavigationMenuItem>
+          <SearchBook />
           <NavigationMenu>
             <NavigationMenuList className="space-x-5">
               <NavigationMenuItem className="hover:cursor-pointer">
