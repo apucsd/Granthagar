@@ -1,8 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
+import OurTeam from "@/components/contact/OurTeam";
 import Container from "../../../components/ui/Container";
 import { Button } from "../../../components/ui/button";
+import Image from "next/image";
 
 const AboutPage = () => {
   return (
@@ -46,15 +48,19 @@ const AboutPage = () => {
                 </Button>
               </div>
             </div>
-            <div>
-              <img
+            <div className="w-full h-full">
+              <Image
+                height={500}
+                width={500}
+                alt="image"
                 src="https://images.pexels.com/photos/256455/pexels-photo-256455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                className="shrink-0 w-full h-full rounded-md object-contain"
+                className="shrink-0 h-full  rounded-md object-contain"
               />
             </div>
           </div>
         </div>
       </div>
+      <OurTeam />
     </Container>
   );
 };
