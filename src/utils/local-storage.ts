@@ -1,5 +1,5 @@
 export const setToLocalStorage = (key: string, token: string) => {
-  console.log("htting setToLocalStorage");
+  // console.log("htting setToLocalStorage");
   if (!key || typeof window === "undefined") {
     return "";
   }

@@ -4,14 +4,16 @@ import FeaturedBooks from "@/components/home/FeaturedBooks";
 import NewBooks from "@/components/home/NewBooks";
 import Slider from "@/components/home/Slider";
 import TopRatedBooks from "@/components/home/TopRated";
+import { getBooksByQuery } from "@/services/bookActions/getBookByQuery";
 
-export default function Home() {
+export default async function Home() {
+  const { data: newBooks } = await getBooksByQuery({});
   return (
     <div>
       <Slider />
       <BooksCategory />
       <FeaturedBooks />
-      <NewBooks />
+      <NewBooks newBooks={newBooks} />
       <TopRatedBooks />
       <Banner />
     </div>

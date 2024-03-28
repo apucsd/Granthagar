@@ -8,18 +8,22 @@ const BookCard = ({ _id, title, image, price }: Partial<TBook>) => {
   return (
     <div
       // style={{ minHeight: "100%" }}
-      className="group border-gray-100/30 relative h-full flex  w-full  flex-col justify-center self-center overflow-hidden rounded-lg border bg-white shadow-md"
+      className="group border-gray-100/30 relative h-full flex  w-full  flex-col flex-grow justify-center self-center overflow-hidden rounded-lg border bg-white shadow-md"
     >
-      <div className="relative mx-3 mt-3 flex h-52 overflow-hidden rounded-xl">
+      <div className="relative mx-3 mt-3 flex  h-60 overflow-hidden rounded-md">
         <Image
           className="peer absolute top-0 right-0 h-full w-full object-cover"
           src={image as string}
           alt="product image"
           fill
         />
-        <div className="peer peer-hover:right-0 bg-primary/10 flex justify-center items-center absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-300 hover:right-0">
+        <div
+          className="peer peer-hover:right-0 bg-primary/10 flex justify-center items-center
+        
+        absolute top-0 -right-96 h-full w-full object-cover transition-all delay-100 duration-300 group-hover:right-0"
+        >
           <Button>
-            <Link href={`/books/${_id}`}>Quick View</Link>
+            <Link href={`/books/${_id}`}>Quick View </Link>
           </Button>
         </div>
 

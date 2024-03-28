@@ -6,7 +6,7 @@ import { ReactNode } from "react";
 
 export function SubmitButton({ children }: { children: ReactNode }) {
   const { pending } = useFormStatus();
-  console.log(pending);
+  // console.log(pending);
 
   return (
     <button type="submit" disabled={pending}>
