@@ -15,7 +15,8 @@ const BookCard = ({ _id, title, image, price }: Partial<TBook>) => {
           className="peer absolute top-0 right-0 h-full w-full object-cover"
           src={image as string}
           alt="product image"
-          fill
+          height={300}
+          width={300}
         />
         <div
           className="peer peer-hover:right-0 bg-primary/10 flex justify-center items-center

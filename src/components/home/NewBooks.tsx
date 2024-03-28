@@ -47,8 +47,8 @@ const NewBooks = ({ newBooks }: { newBooks: TBook[] }) => {
           modules={[Autoplay, Pagination]}
           className="mySwiper rounded-t md:mt-1 mt-8  h-full flex flex-col flex-grow"
         >
-          {newBooks.slice(0, 12).map((item: any) => (
-            <SwiperSlide className="" key={item}>
+          {newBooks.slice(0, 12).map((item: TBook) => (
+            <SwiperSlide className="" key={item._id}>
               <BookCard {...item} />
             </SwiperSlide>
           ))}

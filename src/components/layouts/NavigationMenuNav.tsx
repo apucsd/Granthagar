@@ -16,23 +16,30 @@ const NavigationMenuNav = () => {
     <NavigationMenu className="text-[16px]">
       <NavigationMenuList className="gap-2">
         <NavigationMenuItem className="border-r p-2">
-          <NavigationMenuLink className="bg-transparent">
-            <Link href="/">Home</Link>
+          <NavigationMenuLink
+            href="/"
+            className="bg-transparent hover:text-primary"
+          >
+            Home
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem className="border-r p-2">
-          <NavigationMenuLink className="bg-transparent">
+          <NavigationMenuLink className="bg-transparent hover:text-primary">
             <Link href="/books">Books</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent border-r text-[16px] p-2">
+          <NavigationMenuTrigger className="bg-transparent hover:text-primary border-r text-[16px] p-2">
             Category
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid grid-cols-4 gap-3 p-6 md:w-[400px] lg:w-[800px] ">
               {categories.map((category) => (
-                <NavigationMenuLink asChild key={category.id}>
+                <NavigationMenuLink
+                  className="hover:text-primary"
+                  asChild
+                  key={category.id}
+                >
                   <Link href={category.link}>{category.title}</Link>
                 </NavigationMenuLink>
               ))}
@@ -40,13 +47,17 @@ const NavigationMenuNav = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent border-r text-[16px] p-2">
+          <NavigationMenuTrigger className="bg-transparent hover:text-primary border-r text-[16px] p-2">
             Writer
           </NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid grid-cols-4 gap-3 p-6  lg:w-[1200px] ">
               {writers.map((writer) => (
-                <NavigationMenuLink asChild key={writer.id}>
+                <NavigationMenuLink
+                  className="hover:text-primary"
+                  asChild
+                  key={writer.id}
+                >
                   <Link href={writer.link}>{writer.name}</Link>
                 </NavigationMenuLink>
               ))}
@@ -54,11 +65,11 @@ const NavigationMenuNav = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
 
-        <NavigationMenuItem className="bg-transparent border-r p-2">
-          <Link href="/about">About Us</Link>
+        <NavigationMenuItem className="bg-transparent border-r p-2 hover:text-primary">
+          <NavigationMenuLink href="/about">About Us</NavigationMenuLink>
         </NavigationMenuItem>
-        <NavigationMenuItem className="border-r p-2">
-          <Link href="/contact">Contact Us</Link>
+        <NavigationMenuItem className="border-r p-2 hover:text-primary">
+          <NavigationMenuLink href="/contact">Contact Us</NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

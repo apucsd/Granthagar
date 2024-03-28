@@ -51,12 +51,13 @@ const Slider = () => {
       >
         {data.map((item, i) => (
           <SwiperSlide key={i}>
-            <div className="h-[40vh] md:h-[40vh] lg:h-[50vh] w-full m-5">
+            <div className="h-[40vh] md:h-[40vh] relative lg:h-[60vh] w-full m-5">
               <Image
+                priority={true}
                 fill
                 src={item.url}
                 alt=""
-                className="object-center rounded-t"
+                className="object-center rounded-t w-full h-full"
               />
             </div>
           </SwiperSlide>
