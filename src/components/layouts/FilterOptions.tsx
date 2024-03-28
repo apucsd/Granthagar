@@ -8,6 +8,7 @@ import {
 import { Label } from "../ui/label";
 import { Checkbox } from "../ui/checkbox";
 import { useRouter } from "next/navigation";
+
 const writers = [
   {
     id: 1,
@@ -58,12 +59,6 @@ const FilterOptions = () => {
     if (typeof filterQuery === "number") {
       return router.push(`/books?publicationYear=${filterQuery}`);
     }
-    // Split author name by spaces
-    // const filterQueryParts = filterQuery.split(/[-\s]+/);
-
-    // const query = filterQueryParts
-    //   .map((part: string) => `searchTerm=${part}`)
-    //   .join("&");
 
     return router.push(`/books?searchTerm=${filterQuery}`);
   };

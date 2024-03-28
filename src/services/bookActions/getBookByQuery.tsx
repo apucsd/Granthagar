@@ -1,27 +1,54 @@
 "use server";
-export const getBooksByQuery = async (query: any) => {
-  // console.log(query);
-  let url = `${process.env.NEXT_PUBLIC_BACKED_URL}/books`;
-  if (query.searchTerm) {
-    url = `${process.env.NEXT_PUBLIC_BACKED_URL}/books/?searchTerm=${query.searchTerm}`;
-  }
-  if (query.publicationYear) {
-    url = `${process.env.NEXT_PUBLIC_BACKED_URL}/books/?publicationYear=${query.publicationYear}`;
-  }
-  const res = await fetch(url, {
-    method: "GET",
-    cache: "no-store",
-  });
-  const books = res.json();
-  return books;
-};
-export const getBooksByFilter = async (query: any) => {
-  let url = `${process.env.NEXT_PUBLIC_BACKED_URL}/books?${query}`;
+export interface BookQuery {
+  searchTerm?: string;
+  publicationYear?: number;
+  sort?: number;
+}
 
-  const res = await fetch(url, {
-    method: "GET",
-    cache: "no-store",
-  });
-  const books = res.json();
-  return books;
+export const getBooksByQuery = async (query: BookQuery) => {
+  try {
+    let url = `${process.env.NEXT_PUBLIC_BACKED_URL}/books`;
+    const queryParams = new URLSearchParams();
+
+    if (query.searchTerm) {
+      queryParams.append("searchTerm", query.searchTerm);
+    }
+    if (query.publicationYear) {
+      queryParams.append("publicationYear", query.publicationYear.toString());
+    }
+    if (query.sort) {
+      queryParams.append("sort", query.sort.toString());
+    }
+    if (queryParams.toString()) {
+      url += `?${queryParams.toString()}`;
+    }
+
+    const res = await fetch(url, {
+      method: "GET",
+      cache: "no-store",
+    });
+
+    const books = await res.json();
+    return books;
+  } catch (error) {
+    console.error("Error fetching books:", error);
+    throw error;
+  }
+};
+
+export const getBooksByFilter = async (query: string) => {
+  try {
+    const url = `${process.env.NEXT_PUBLIC_BACKED_URL}/books?${query}`;
+
+    const res = await fetch(url, {
+      method: "GET",
+      cache: "no-store",
+    });
+
+    const books = await res.json();
+    return books;
+  } catch (error) {
+    console.error("Error fetching books:", error);
+    throw error; // Propagate the error to the caller
+  }
 };

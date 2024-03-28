@@ -9,6 +9,7 @@ import { TBook } from "@/types/index.type";
 import React from "react";
 
 const AllBooks = async ({ searchParams }: { searchParams: any }) => {
+  // console.log(searchParams);
   const { data } = await getBooksByQuery(searchParams);
 
   return (
