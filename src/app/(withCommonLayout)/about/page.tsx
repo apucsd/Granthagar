@@ -19,6 +19,20 @@ const AboutPage = () => {
               <p className="text-base leading-relaxed">
                 The e-commerce platform for buying and selling books.
               </p>
+
+              <div className="mt-12">
+                <p className="text-base text-slate-800">
+                  In Bangladesh, a trusted online bookstore for buying and
+                  selling books could be granthagar.com. Here, you can purchase
+                  books at affordable prices from anywhere in Bangladesh. We aim
+                  to make quality books easily accessible to everyone at lower
+                  prices. You can conveniently purchase books from our website
+                  from the comfort of your home. We aspire for every individual
+                  to be enlightened through reading, illuminating the entire
+                  world with knowledge.
+                </p>
+              </div>
+
               <div className="mt-12 space-x-4">
                 <Button>Buy Now</Button>
                 <Button className="gap-1">
@@ -30,13 +44,6 @@ const AboutPage = () => {
                     style={{ width: "20px", height: "20px" }}
                   ></lord-icon>
                 </Button>
-              </div>
-              <div className="mt-12">
-                <p className="text-base leading-relaxed">
-                  Online Book Shop can be your reliable medium for buying
-                  Islamic books, general books, kids books, academic books etc.
-                  in Bangladesh.
-                </p>
               </div>
             </div>
             <div>
