@@ -14,10 +14,14 @@ const AllBooks = async ({ searchParams }: { searchParams: any }) => {
   return (
     <Container>
       <Breadcrumbs />
-      <div className="flex gap-5">
+      <div className="flex gap-2">
         <FilterOptions />
         <div className="w-full px-5 space-y-3">
-          <div className="flex justify-end">
+          <div className="flex justify-between bg-slate-50 items-center p-1 px-2">
+            <h1>
+              <span className="font-semibold">{data.length}</span> Products
+              found
+            </h1>
             <FilterByDate />
           </div>
 

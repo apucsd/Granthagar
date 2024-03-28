@@ -54,7 +54,7 @@ const categories = [
 const FilterOptions = () => {
   const router = useRouter();
   const handleFilter = (filterQuery: string | number) => {
-    console.log(filterQuery);
+    // console.log(filterQuery);
     if (typeof filterQuery === "number") {
       return router.push(`/books?publicationYear=${filterQuery}`);
     }
@@ -68,8 +68,8 @@ const FilterOptions = () => {
     return router.push(`/books?searchTerm=${filterQuery}`);
   };
   return (
-    <div className="w-[30%] hidden md:block min-h-screen">
-      <h2 className="text-2xl my-2 font-semibold">Filter Options</h2>
+    <div className="w-[30%] hidden md:block min-h-screen bg-slate-50 p-4">
+      <h2 className="text-2xl my-2 font-medium">Filter Options</h2>
       <Accordion
         defaultValue={["item-1", "item-2"]}
         type="multiple"
@@ -84,7 +84,13 @@ const FilterOptions = () => {
               <AccordionContent key={category.id}>
                 <div className="flex items-center space-x-3">
                   <Checkbox
-                    onClick={() => handleFilter(category.category)}
+                    onCheckedChange={(value) => {
+                      {
+                        if (value) {
+                          handleFilter(category.category);
+                        }
+                      }
+                    }}
                     id={category.category}
                   />
                   <Label
@@ -106,7 +112,15 @@ const FilterOptions = () => {
             <AccordionContent key={writer.id}>
               <div className="flex items-center space-x-3">
                 <Checkbox
-                  onClick={() => handleFilter(writer.authorName)}
+                  onCheckedChange={(value) => {
+                    {
+                      if (value) {
+                        handleFilter(writer.authorName);
+                      } else {
+                        handleFilter("");
+                      }
+                    }
+                  }}
                   id={writer.authorName}
                 />
                 <Label

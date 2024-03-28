@@ -21,11 +21,12 @@ const BookDetailsPage = async ({ params }: { params: { bookId: string } }) => {
         <div className="col-span-4 flex flex-col justify-between">
           <div className="w-full h-[400px] mx-auto relative">
             <Image
-              height={400}
-              width={400}
-              className="w-auto h-auto object-contain rounded-xl"
+              fill
+              priority
+              className="w-full h-full object-contain rounded-xl"
               src={book.image}
               alt=""
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </div>
         </div>
