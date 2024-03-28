@@ -42,7 +42,7 @@ const BookLargeCard = ({
           </p>
         </div>
         <div className="flex justify-between items-center">
-          <p className=" truncate   text-primary">{description}</p>
+          <p className=" truncate   text-green-500">{description}</p>
         </div>
         <div className="flex justify-between items-center">
           <p>

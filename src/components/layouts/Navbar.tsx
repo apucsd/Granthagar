@@ -53,7 +53,7 @@ const Navbar = () => {
               <lord-icon
                 src="https://cdn.lordicon.com/qwjfapmb.json"
                 trigger="hover"
-                colors="primary:#ebe6ef,secondary:#DD1361,tertiary:#3a3347,quaternary:#f24c00,quinary:#faf9d1"
+                colors="primary:#ebe6ef,secondary:#4F46E5,tertiary:#3a3347,quaternary:#f24c00,quinary:#faf9d1"
                 style={{ width: 80, height: 50 }}
               />
               <p className="font-semibold hidden md:block -ms-5 uppercase">
