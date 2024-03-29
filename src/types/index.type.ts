@@ -15,5 +15,6 @@ export interface TBook {
   weight: string;
   createdAt: string;
   updatedAt: string;
+  selectedQuantity?: number;
   __v: number;
 }
