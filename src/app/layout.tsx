@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Hind_Siliguri } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
-import Provider from "@/lib/Provider";
+import Provider from "@/lib/Providers";
 
 const hind_Siliguri = Hind_Siliguri({ subsets: ["bengali"], weight: "400" });
 
