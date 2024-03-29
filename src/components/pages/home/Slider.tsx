@@ -8,7 +8,7 @@ import "swiper/css";
 // import required modules
 import { Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
-import Container from "../ui/Container";
+import Container from "../../ui/Container";
 
 const Slider = () => {
   const data = [

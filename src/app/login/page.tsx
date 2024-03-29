@@ -1,7 +1,7 @@
 "use client";
 import Container from "@/components/ui/Container";
-import CustomForm from "@/components/ui/CustomForm";
-import CustomInput from "@/components/ui/CustomInput";
+import CustomForm from "@/components/form/CustomForm";
+import CustomInput from "@/components/form/CustomInput";
 import { Button } from "@/components/ui/button";
 import { loginUser } from "@/services/authActions/loginUser";
 import { registerUser } from "@/services/authActions/registerUser";

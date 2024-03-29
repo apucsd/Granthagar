@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import OurTeam from "@/components/about/OurTeam";
+import OurTeam from "@/components/pages/about/OurTeam";
 import Container from "../../../components/ui/Container";
 import { Button } from "../../../components/ui/button";
 import Image from "next/image";

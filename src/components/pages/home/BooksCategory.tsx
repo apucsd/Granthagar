@@ -1,11 +1,11 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Container from "../ui/Container";
+import Container from "../../ui/Container";
 import Image from "next/image";
 import { Pagination, Autoplay } from "swiper/modules";
 import Link from "next/link";
 import "swiper/css";
-import SwiperButton from "../ui/SwiperButton";
+import SwiperButton from "../../ui/SwiperButton";
 const BooksCategory = () => {
   const booksCategories = [
     {

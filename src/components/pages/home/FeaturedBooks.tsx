@@ -1,9 +1,9 @@
-import Container from "../ui/Container";
+import Container from "../../ui/Container";
 
-import BookCard from "../ui/card/BookCard";
+import BookCard from "../../ui/card/BookCard";
 import { getBooksByQuery } from "@/services/bookActions/getBookByQuery";
 import { TBook } from "@/types/index.type";
-import BookLargeCard from "../ui/card/BookLargeCard";
+import BookLargeCard from "../../ui/card/BookLargeCard";
 const FeaturedBooks = async () => {
   const { data: featuredBooks } = await getBooksByQuery({});
   // console.log(data);

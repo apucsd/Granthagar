@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Container from "../ui/Container";
-import { Button } from "../ui/button";
+import Container from "../../ui/Container";
+import { Button } from "../../ui/button";
 import { ChevronRight } from "lucide-react";
-import BookCard from "../ui/card/BookCard";
+import BookCard from "../../ui/card/BookCard";
 import { TBook } from "@/types/index.type";
 import { getBooksByFilter } from "@/services/bookActions/getBookByQuery";
 
