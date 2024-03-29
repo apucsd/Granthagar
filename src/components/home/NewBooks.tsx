@@ -3,11 +3,11 @@ import Container from "../ui/Container";
 import BookCard from "../ui/card/BookCard";
 import { TBook } from "@/types/index.type";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperButton from "../ui/SwiperButton";
 import { Pagination, Autoplay } from "swiper/modules";
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { ChevronRight } from "lucide-react";
+import SwiperButton from "../ui/SwiperButton";
 const NewBooks = ({ newBooks }: { newBooks: TBook[] }) => {
   return (
     <Container>
