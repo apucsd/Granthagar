@@ -91,7 +91,7 @@ const Navbar = () => {
               bounce: 0,
               duration: 0.8,
             }}
-            className="fixed z-[99999] bg-primary text-white shadow-lg top-0 left-0 w-full max-w-[280px] p-5"
+            className=" z-[99999] bg-primary text-white shadow-lg top-0 left-0 w-full max-w-[280px] p-5"
           >
             <div className="flex w-full  text-end justify-end">
               <button
