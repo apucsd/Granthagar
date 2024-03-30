@@ -11,16 +11,21 @@ import {
 
 import Headroom from "react-headroom";
 import { useState } from "react";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import SearchBook from "../ui/SearchBook";
+import { useAppSelector } from "@/redux/hooks";
+import AuthButton from "./AuthButton";
+import NavigationMenuNav from "./NavigationMenuNav";
 // import { NavigationMenuNav } from "./NavigationMenu";
 const Navbar = () => {
-  const NavigationMenuNav = dynamic(() => import("./NavigationMenuNav"), {
-    ssr: false,
-  });
-  const AuthButton = dynamic(() => import("./AuthButton"), { ssr: false });
+  // const NavigationMenuNav = dynamic(() => import("./NavigationMenuNav"), {
+  //   ssr: false,
+  // });
+  // const AuthButton = dynamic(() => import("./AuthButton"), { ssr: false });
 
   const [showMenu, setShowMenu] = useState(false);
+
+  const { products } = useAppSelector((state) => state.cart);
   const menus = [
     { title: "Home", path: "/" },
     { title: "All Books", path: "/books" },
@@ -67,7 +72,16 @@ const Navbar = () => {
             <NavigationMenuList className="space-x-5">
               <NavigationMenuItem className="hover:cursor-pointer">
                 <Link href="/cart">
-                  <ShoppingCart></ShoppingCart>
+                  <div className="relative"></div>
+
+                  <div>
+                    <div className="t-0 absolute left-3">
+                      <p className="flex size-2 items-center justify-center rounded-full bg-red-500 p-2 text-xs text-white">
+                        {products.length}
+                      </p>
+                    </div>
+                    <ShoppingCart />
+                  </div>
                 </Link>
               </NavigationMenuItem>
               <AuthButton />
