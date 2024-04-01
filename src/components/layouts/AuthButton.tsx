@@ -6,10 +6,16 @@ import { Avatar, AvatarFallback } from "../ui/avatar";
 import { getUserInfo, loginOutUser } from "@/services/auth.services";
 import { useRouter } from "next/navigation";
 import { User2Icon } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const AuthButton = () => {
   const router = useRouter();
-  const user = getUserInfo();
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const user = getUserInfo();
+    setUser(user);
+  }, []);
+
   const handleLogOut = () => {
     loginOutUser();
     router.refresh();

@@ -18,23 +18,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Provider>
-        <body className={hind_Siliguri.className}>
-          <NextTopLoader
-            color="#4F46E5"
-            initialPosition={0.08}
-            crawlSpeed={200}
-            height={2}
-            crawl={true}
-            showSpinner={false}
-            easing="ease"
-            speed={200}
-          />
-          {children}
+      <body className={hind_Siliguri.className}>
+        <NextTopLoader
+          color="#4F46E5"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={2}
+          crawl={true}
+          showSpinner={false}
+          easing="ease"
+          speed={200}
+        />
+        <Provider>{children}</Provider>
 
-          <Toaster position="top-right" expand={true} richColors />
-        </body>
-      </Provider>
+        <Toaster position="top-right" expand={true} richColors />
+      </body>
 
       <script async src="https://cdn.lordicon.com/lordicon.js"></script>
     </html>

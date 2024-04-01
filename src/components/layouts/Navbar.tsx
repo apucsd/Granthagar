@@ -11,17 +11,17 @@ import {
 
 import Headroom from "react-headroom";
 import { useState } from "react";
-// import dynamic from "next/dynamic";
 import SearchBook from "../ui/SearchBook";
 import { useAppSelector } from "@/redux/hooks";
-import AuthButton from "./AuthButton";
-import NavigationMenuNav from "./NavigationMenuNav";
+// import AuthButton from "./AuthButton";
+// import NavigationMenuNav from "./NavigationMenuNav";
+import dynamic from "next/dynamic";
 // import { NavigationMenuNav } from "./NavigationMenu";
 const Navbar = () => {
-  // const NavigationMenuNav = dynamic(() => import("./NavigationMenuNav"), {
-  //   ssr: false,
-  // });
-  // const AuthButton = dynamic(() => import("./AuthButton"), { ssr: false });
+  const NavigationMenuNav = dynamic(() => import("./NavigationMenuNav"), {
+    ssr: false,
+  });
+  const AuthButton = dynamic(() => import("./AuthButton"), { ssr: false });
 
   const [showMenu, setShowMenu] = useState(false);
 
@@ -34,10 +34,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
-      suppressHydrationWarning={true}
-      className="bg-[#ebefe044] relative h-full   w-full max-w-7xl mx-auto border-b md:border-0"
-    >
+    <nav className="bg-[#ebefe044] relative h-full   w-full max-w-7xl mx-auto border-b md:border-0">
       <Headroom
         style={{
           transition: "all 2s ease-in-out",
