@@ -8,10 +8,12 @@ import { Minus, Plus } from "lucide-react";
 import Image from "next/image";
 
 const CartPage = () => {
-  const { products } = useAppSelector((state) => state.cart);
+  const { products, subTotal, total, deliveryCharge } = useAppSelector(
+    (state) => state.cart
+  );
   const dispatch = useAppDispatch();
 
-  const handleUpdateQuantity = (type: string, id: string) => {
+  const handleUpdateQuantity = (type: "increase" | "decrease", id: string) => {
     const payload = { type, _id: id };
     dispatch(updateQuantity(payload));
   };
@@ -33,7 +35,7 @@ const CartPage = () => {
               <div className="px-4 py-6 sm:px-8 sm:py-10">
                 <div className="flow-root">
                   <div className="-my-8">
-                    {products.map((product) => (
+                    {products.map((product: any) => (
                       <div
                         key={product._id}
                         className="flex flex-col space-y-3 py-6 text-left sm:flex-row sm:space-x-5 sm:space-y-0"
@@ -56,10 +58,13 @@ const CartPage = () => {
                               <p className="mx-0 mt-1 mb-0 text-sm text-gray-400">
                                 {product.authors[0]}
                               </p>
+                              <p className="mx-0 mt-1 mb-0 text-sm text-gray-400">
+                                {product.price} ৳
+                              </p>
                             </div>
                             <div className="mt-4 flex items-end justify-between sm:mt-0 sm:items-start sm:justify-end">
                               <p className="shrink-0 w-20 text-base font-semibold text-gray-900 sm:order-2 sm:ml-8 sm:text-right">
-                                {product.price}
+                                {product.selectedPrice} ৳
                               </p>
                               <div className="sm:order-1">
                                 <div className="mx-auto flex h-8 items-stretch text-gray-600">
@@ -122,18 +127,23 @@ const CartPage = () => {
                 <div className="mt-6 border-t border-b py-2">
                   <div className="flex items-center justify-between">
                     <p className="text-sm text-gray-400">Subtotal</p>
-                    <p className="text-lg font-semibold text-gray-900">399৳</p>
+                    <p className="text-lg font-semibold text-gray-900">
+                      {subTotal} ৳
+                    </p>
                   </div>
                   <div className="flex items-center justify-between">
-                    <p className="text-sm text-gray-400">Delivary Charge</p>
-                    <p className="text-lg font-semibold text-gray-900">100৳</p>
+                    <p className="text-sm text-gray-400">Delivery Charge</p>
+                    <p className="text-lg font-semibold text-gray-900">
+                      {deliveryCharge} ৳
+                    </p>
                   </div>
                 </div>
                 <div className="mt-6 flex items-center justify-between">
-                  <p className="text-sm font-medium text-gray-900">Total</p>
+                  <p className="text-sm font-medium text-gray-900">
+                    Grand Total
+                  </p>
                   <p className="text-2xl font-semibold text-gray-900">
-                    <span className="text-xs font-normal text-gray-400">৳</span>
-                    408.00
+                    {total} ৳
                   </p>
                 </div>
                 <br />

@@ -34,7 +34,10 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-[#ebefe044] relative h-full   w-full max-w-7xl mx-auto border-b md:border-0">
+    <nav
+      suppressHydrationWarning={true}
+      className="bg-[#ebefe044] relative h-full   w-full max-w-7xl mx-auto border-b md:border-0"
+    >
       <Headroom
         style={{
           transition: "all 2s ease-in-out",
