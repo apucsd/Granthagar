@@ -2,26 +2,28 @@
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { AlignLeft, ShoppingCart } from "lucide-react";
-// import NavbarHeader from "./NavbarHeader";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuList,
 } from "../ui/navigation-menu";
-
 import Headroom from "react-headroom";
 import { useState } from "react";
 import SearchBook from "../ui/SearchBook";
 import { useAppSelector } from "@/redux/hooks";
-// import AuthButton from "./AuthButton";
-// import NavigationMenuNav from "./NavigationMenuNav";
 import dynamic from "next/dynamic";
-// import { NavigationMenuNav } from "./NavigationMenu";
+import NavItemLoader from "../ui/loader/NavItemLoader";
+import AvatarLoader from "../ui/loader/AvatarLoader";
 const Navbar = () => {
   const NavigationMenuNav = dynamic(() => import("./NavigationMenuNav"), {
     ssr: false,
+    suspense: true,
+    loading: () => <NavItemLoader />,
   });
-  const AuthButton = dynamic(() => import("./AuthButton"), { ssr: false });
+  const AuthButton = dynamic(() => import("./AuthButton"), {
+    ssr: false,
+    loading: () => <AvatarLoader />,
+  });
 
   const [showMenu, setShowMenu] = useState(false);
 
