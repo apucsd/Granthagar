@@ -60,7 +60,7 @@ const BookLargeCard = ({
           </div>
           <div className="space-y-2">
             <p className="text-slate-700">Publisher</p>
-            <p className="font-semibold truncate">{publisher}</p>
+            <p className="font-semibold truncate max-w-[20ch]">{publisher}</p>
           </div>
           <div className="space-y-2">
             <p className="text-slate-700">Year</p>
