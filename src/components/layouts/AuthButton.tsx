@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { NavigationMenuItem } from "../ui/navigation-menu";
+import { NavigationMenuItem, NavigationMenuLink } from "../ui/navigation-menu";
 import { Avatar, AvatarFallback } from "../ui/avatar";
 import { getUserInfo, loginOutUser } from "@/services/auth.services";
 import { useRouter } from "next/navigation";
@@ -23,7 +23,7 @@ const AuthButton = () => {
   return (
     <>
       {user ? (
-        <div>
+        <div className="flex gap-2 items-center">
           <NavigationMenuItem>
             <Button
               onClick={handleLogOut}
@@ -32,6 +32,15 @@ const AuthButton = () => {
             >
               Sign Out
             </Button>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink href="/dashboard">
+              <Avatar>
+                <AvatarFallback>
+                  <User2Icon />
+                </AvatarFallback>
+              </Avatar>
+            </NavigationMenuLink>
           </NavigationMenuItem>
         </div>
       ) : (

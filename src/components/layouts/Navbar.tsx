@@ -78,7 +78,7 @@ const Navbar = () => {
 
                   <div>
                     <div className="t-0 absolute left-3">
-                      <p className="flex size-2 items-center justify-center rounded-full bg-red-500 p-2 text-xs text-white">
+                      <p className="flex size-2 items-center justify-center rounded-full bg-primary p-2 text-xs text-white">
                         {products.length}
                       </p>
                     </div>
@@ -91,7 +91,7 @@ const Navbar = () => {
           </NavigationMenu>
         </div>
       </Headroom>
-      <div className="hidden md:block md:px-10  px-10 md:py-2 border-t  p-5  transition-all h-full">
+      <div className="hidden  md:block md:px-10  px-10 md:py-2 border-t  p-5  transition-all h-full">
         <NavigationMenuNav />
       </div>
       {/* menu items here */}

@@ -8,9 +8,16 @@ const AvatarLoader = () => {
   return (
     <>
       {user ? (
-        <Button className="font-semibold animate-pulse" variant={"outline"}>
-          Sign Out
-        </Button>
+        <div className="flex gap-2 items-center">
+          <Button className="font-semibold animate-pulse" variant={"outline"}>
+            Sign Out
+          </Button>
+          <Avatar>
+            <AvatarFallback>
+              <User2Icon />
+            </AvatarFallback>
+          </Avatar>
+        </div>
       ) : (
         <Avatar className="animate-pulse">
           <AvatarFallback>

@@ -1,3 +1,6 @@
+import { USER_ROLE } from "@/constants/constant";
+import { ReactNode } from "react";
+
 export interface TBook {
   _id: string;
   title: string;
@@ -17,4 +20,11 @@ export interface TBook {
   updatedAt: string;
   selectedQuantity?: number;
   __v: number;
+}
+export type TUserRole = keyof typeof USER_ROLE;
+export interface TSidebarItem {
+  id: number;
+  title: string;
+  href: string;
+  icon: ReactNode; // Lucid icon names
 }

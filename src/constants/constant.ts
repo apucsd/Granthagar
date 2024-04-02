@@ -213,3 +213,9 @@ export const writers = [
     link: "/books?searchTerm=rajshekhar basu",
   },
 ];
+
+export const USER_ROLE = {
+  ADMIN: "admin",
+  SELLER: "seller",
+  GUEST: "guest",
+};

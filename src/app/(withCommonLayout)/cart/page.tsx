@@ -29,10 +29,9 @@ const CartPage = () => {
     <Container>
       <section className=" bg-gray-100 p-5">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center"></div>
           {products.length > 0 ? (
             <div className="mx-auto mt-8 max-w-2xl md:my-12">
-              <h1 className="text-2xl mt-4 font-semibold text-gray-900">
+              <h1 className="text-2xl text-center  font-semibold text-gray-900">
                 My Cart
               </h1>
               <div className="bg-white my-4 shadow">
@@ -132,7 +131,7 @@ const CartPage = () => {
                     <div className="flex items-center justify-between">
                       <p className="text-sm text-gray-400">Subtotal</p>
                       <p className="text-lg font-semibold text-gray-900">
-                        {subTotal} ৳
+                        {subTotal.toFixed(2)} ৳
                       </p>
                     </div>
                     <div className="flex items-center justify-between">
@@ -147,7 +146,7 @@ const CartPage = () => {
                       Grand Total
                     </p>
                     <p className="text-2xl font-semibold text-gray-900">
-                      {total} ৳
+                      {total.toFixed(2)} ৳
                     </p>
                   </div>
                   <br />
