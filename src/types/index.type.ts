@@ -5,8 +5,8 @@ export interface TBook {
   isbn: string;
   publisher: string;
   publicationYear: number;
-  category?: string[] | null;
-  image: string;
+  category: string[] | null;
+  image: string | undefined;
   language: string;
   ratings: number;
   description: string;

@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { Button } from "../button";
-import { ShoppingCart } from "lucide-react";
 import { TBook } from "@/types/index.type";
 import defaultImage from "@/assets/not-found-img.jpeg";
+import AddToCartButton from "../AddToCartButton";
 const BookLargeCard = ({
+  _id,
   title,
   authors,
   publisher,
@@ -14,6 +14,7 @@ const BookLargeCard = ({
   description,
   price,
 }: Partial<TBook>) => {
+  const cartData = { _id, title, image, price, authors };
   return (
     <div className="grid gap-5 grid-cols-12 place-items-center  bg-white shadow-xl border p-4 rounded-md">
       <div className="col-span-12 md:col-span-4 relative">
@@ -66,9 +67,7 @@ const BookLargeCard = ({
             <p className="font-semibold">{publicationYear}</p>
           </div>
           <div className="space-y-2">
-            <Button className="gap-3">
-              Add To Cart <ShoppingCart />
-            </Button>
+            <AddToCartButton {...cartData} />
           </div>
         </div>
       </div>

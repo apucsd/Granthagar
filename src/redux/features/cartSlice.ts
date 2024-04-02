@@ -3,7 +3,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface TBook {
   _id: string;
   title: string;
-  author: string;
+  authors: string[];
+  image: string;
   price: number;
   selectedQuantity?: number;
   selectedPrice?: number;

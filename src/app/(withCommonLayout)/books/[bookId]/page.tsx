@@ -1,18 +1,19 @@
 /* eslint-disable jsx-a11y/alt-text */
 
+import AddToCartButton from "@/components/ui/AddToCartButton";
 import { Button } from "@/components/ui/button";
 import BookCard from "@/components/ui/card/BookCard";
 import { getBooksByQuery } from "@/services/bookActions/getBookByQuery";
 import { getSingleBook } from "@/services/bookActions/getSingleBook";
 import { TBook } from "@/types/index.type";
-import { Heart, ShoppingCart } from "lucide-react";
+import { Heart } from "lucide-react";
 import Image from "next/image";
 
 /* eslint-disable @next/next/no-img-element */
 const BookDetailsPage = async ({ params }: { params: { bookId: string } }) => {
-  const { data: book } = await getSingleBook(params.bookId);
+  const { data: book }: { data: TBook } = await getSingleBook(params.bookId);
   const { data: relatedBooks } = await getBooksByQuery({
-    searchTerm: book.category[0],
+    searchTerm: book.category![0],
   });
 
   return (
@@ -24,7 +25,7 @@ const BookDetailsPage = async ({ params }: { params: { bookId: string } }) => {
               fill
               priority
               className="w-full h-full object-contain rounded-xl"
-              src={book.image}
+              src={book.image as string}
               alt=""
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
@@ -79,10 +80,7 @@ const BookDetailsPage = async ({ params }: { params: { bookId: string } }) => {
             </p>
 
             <div className="space-y-3 flex justify-between gap-4">
-              <Button className="gap-2 mt-auto w-full">
-                <ShoppingCart />
-                Add to cart
-              </Button>
+              <AddToCartButton {...book} />
               <div className="">
                 <Heart className="size-8" />
               </div>

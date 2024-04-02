@@ -1,15 +1,11 @@
-"use client";
 import Image from "next/image";
 import { Button } from "../button";
 import Link from "next/link";
-import { ShoppingCart } from "lucide-react";
 import { TBook } from "@/types/index.type";
-import { useAppDispatch } from "@/redux/hooks";
-import { addToCart } from "@/redux/features/cartSlice";
+import AddToCartButton from "../AddToCartButton";
 
 const BookCard = ({ _id, title, image, price, authors }: Partial<TBook>) => {
-  const dispatch = useAppDispatch();
-
+  const cartData = { _id, title, image, price, authors };
   return (
     <div
       // style={{ minHeight: "100%" }}
@@ -49,15 +45,7 @@ const BookCard = ({ _id, title, image, price, authors }: Partial<TBook>) => {
             </span>
           </p>
         </div>
-        <Button
-          onClick={() =>
-            dispatch(addToCart({ _id, title, image, price, authors }))
-          }
-          className="gap-2 mt-auto w-full"
-        >
-          <ShoppingCart />
-          Add to cart
-        </Button>
+        <AddToCartButton {...cartData} />
       </div>
     </div>
   );
