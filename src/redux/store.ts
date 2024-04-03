@@ -9,6 +9,7 @@ import {
   REGISTER,
   persistStore,
 } from "redux-persist";
+import { baseApi } from "./api/baseApi";
 
 //
 export const store = configureStore({
@@ -18,7 +19,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(baseApi.middleware),
 });
 export const persistor = persistStore(store);
 export type RootState = ReturnType<typeof store.getState>;
