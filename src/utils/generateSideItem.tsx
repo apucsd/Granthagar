@@ -55,12 +55,12 @@ export const generateSideItem = (role: TUserRole) => {
           icon: <Book className="size-5" />,
           href: `${role}/manage-books`,
         },
-        {
-          id: 3,
-          title: "Orders",
-          icon: <ListOrdered className="size-5" />,
-          href: `${role}/orders`,
-        },
+        // {
+        //   id: 3,
+        //   title: "Orders",
+        //   icon: <ListOrdered className="size-5" />,
+        //   href: `${role}/orders`,
+        // },
         {
           id: 4,
           title: "Manage Orders",

@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { loginUser } from "@/services/authActions/loginUser";
 import { registerUser } from "@/services/authActions/registerUser";
 import { storeUserInfo } from "@/services/auth.services";
-// import GoogleSvg from "@/svgs/GoogleSvg";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -32,7 +31,7 @@ const LoginPage = () => {
         });
         if (result.success) {
           storeUserInfo(result.data.accessToken);
-          router.push("/");
+          router.push("/dashboard");
         }
       } else {
         toast.error("This user already exits", {
@@ -56,7 +55,7 @@ const LoginPage = () => {
         toast.success("Your account login successfully", {
           duration: 2000,
         });
-        router.push("/");
+        router.push("/dashboard");
       }
       if (res.error) {
         toast.error(res.error, {
