@@ -15,11 +15,13 @@ import { IUser } from "@/types/index.type";
 import { Edit2Icon, TrashIcon } from "lucide-react";
 import { ConfirmModal } from "@/components/modal/ConfirmModal";
 import { toast } from "sonner";
+import EditUserRoleModal from "@/components/modal/EditUserRoleModal";
 const ManageUsers = () => {
   const { data, isFetching } = useGetAllUserQuery(undefined);
   const [deleteUser] = useDeleteUserMutation();
   const [id, setId] = useState<undefined | string>();
   const [openModal, setOpenModal] = useState(false);
+  const [openEditRoleModal, setOpenEditRoleModal] = useState(false);
 
   const handleDelete = async () => {
     try {
@@ -76,7 +78,18 @@ const ManageUsers = () => {
                     setOpen={setOpenModal}
                   />
 
-                  <Edit2Icon className="text-green-500 size-5 cursor-pointer" />
+                  <Edit2Icon
+                    onClick={() => {
+                      setId(user._id);
+                      setOpenEditRoleModal(true);
+                    }}
+                    className="text-green-500 size-5 cursor-pointer"
+                  />
+                  <EditUserRoleModal
+                    open={openEditRoleModal}
+                    setOpen={setOpenEditRoleModal}
+                    id={id}
+                  />
                 </TableCell>
               </TableRow>
             ))

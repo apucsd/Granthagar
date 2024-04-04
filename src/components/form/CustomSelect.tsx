@@ -1,6 +1,6 @@
 import { Controller, useFormContext } from "react-hook-form";
 import { FieldError } from "react-hook-form";
-import Creatable from "react-select/creatable";
+import Select from "react-select";
 
 type TOption = { value: string; label: string };
 type TSelectProps = {
@@ -17,7 +17,7 @@ const CustomSelect = ({ name, options }: TSelectProps) => {
       render={({ field, formState: { errors } }) => {
         return (
           <>
-            <Creatable
+            <Select
               styles={{
                 control: (base) => ({
                   ...base,
@@ -25,7 +25,6 @@ const CustomSelect = ({ name, options }: TSelectProps) => {
                   height: "100%",
                 }),
               }}
-              isMulti
               {...field}
               options={options}
             />
