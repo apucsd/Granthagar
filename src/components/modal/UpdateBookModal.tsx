@@ -47,7 +47,7 @@ const UpdateBookModal = ({ id, open, setOpen }: any) => {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-2xl overflow-y-auto max-h-[90vh] scroll-smooth hide-scrollbar">
         <DialogHeader>
-          <DialogTitle>Add A Book</DialogTitle>
+          <DialogTitle>Update A Book</DialogTitle>
         </DialogHeader>
         <div className="md:p-2">
           <CustomForm onSubmit={handleSubmit} defaultValues={singleBook.data}>

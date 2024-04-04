@@ -1,3 +1,4 @@
+"use client";
 import { MoveLeft, MoveRight } from "lucide-react";
 import { useSwiper } from "swiper/react";
 const SwiperButton = () => {

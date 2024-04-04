@@ -22,6 +22,7 @@ import AddBookModal from "@/components/modal/AddBookModal";
 import { toast } from "sonner";
 import { ConfirmModal } from "@/components/modal/ConfirmModal";
 import UpdateBookModal from "@/components/modal/UpdateBookModal";
+import TableLoader from "@/components/ui/loader/TableLoader";
 
 const ManageBooks = () => {
   const [findId, setFindId] = useState("");
@@ -68,12 +69,12 @@ const ManageBooks = () => {
           {isFetching ? (
             // Show loading skeleton while data is loading
             <>
-              <LoadingSkeleton />
-              <LoadingSkeleton />
-              <LoadingSkeleton />
-              <LoadingSkeleton />
-              <LoadingSkeleton />
-              <LoadingSkeleton />
+              <TableLoader />
+              <TableLoader />
+              <TableLoader />
+              <TableLoader />
+              <TableLoader />
+              <TableLoader />
             </>
           ) : (
             // Render actual data when loaded
@@ -130,22 +131,3 @@ const ManageBooks = () => {
 };
 
 export default ManageBooks;
-const LoadingSkeleton = () => (
-  <TableRow>
-    <TableCell className="font-medium">
-      <div className="bg-gray-200 h-6 w-16 animate-pulse"></div>
-    </TableCell>
-    <TableCell>
-      <div className="bg-gray-200 h-6 w-24 animate-pulse"></div>
-    </TableCell>
-    <TableCell>
-      <div className="bg-gray-200 h-6 w-20 animate-pulse"></div>
-    </TableCell>
-    <TableCell className="">
-      <div className="bg-gray-200 h-6 w-12 animate-pulse"></div>
-    </TableCell>
-    <TableCell className="">
-      <div className="bg-gray-200 h-6 w-12 animate-pulse"></div>
-    </TableCell>
-  </TableRow>
-);
