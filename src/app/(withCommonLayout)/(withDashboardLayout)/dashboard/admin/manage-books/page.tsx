@@ -21,10 +21,12 @@ import CustomPagination from "@/components/ui/CustomPagination";
 import AddBookModal from "@/components/modal/AddBookModal";
 import { toast } from "sonner";
 import { ConfirmModal } from "@/components/modal/ConfirmModal";
+import UpdateBookModal from "@/components/modal/UpdateBookModal";
 
 const ManageBooks = () => {
   const [findId, setFindId] = useState("");
   const [openModal, setOpenModal] = useState(false);
+  const [openUpdateModal, setOpenUpdateModal] = useState(false);
   const [page, setPage] = useState(1);
   const [removeBook] = useRemoveBookMutation();
   const { data: booksData, isFetching } = useGetAllBooksQuery([
@@ -81,7 +83,7 @@ const ManageBooks = () => {
                 <TableCell>{book.title}</TableCell>
                 <TableCell>{book.authors[0]}</TableCell>
                 <TableCell className="text-right">{book.price} ৳</TableCell>
-                <TableCell className="flex items-center gap-5 justify-center text-right">
+                <TableCell className="flex items-center gap-6 justify-center text-right">
                   <TrashIcon
                     onClick={() => {
                       setFindId(book._id);
@@ -94,7 +96,18 @@ const ManageBooks = () => {
                     setOpen={setOpenModal}
                     handleConfirm={handleDelete}
                   />
-                  <Edit2Icon className="text-green-500 size-5 cursor-pointer" />
+                  <Edit2Icon
+                    onClick={() => {
+                      setFindId(book._id);
+                      setOpenUpdateModal(true);
+                    }}
+                    className="text-green-500 size-5 cursor-pointer"
+                  />
+                  <UpdateBookModal
+                    open={openUpdateModal}
+                    setOpen={setOpenUpdateModal}
+                    id={findId}
+                  />
                 </TableCell>
               </TableRow>
             ))

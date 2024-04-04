@@ -19,6 +19,15 @@ const booksApi = baseApi.injectEndpoints({
       },
       providesTags: ["books"],
     }),
+    getSingleBook: build.query({
+      query: (id) => {
+        return {
+          url: `/books/${id}`,
+          method: "GET",
+        };
+      },
+      providesTags: ["books"],
+    }),
     addBook: build.mutation({
       query: (data) => {
         return {
@@ -38,11 +47,23 @@ const booksApi = baseApi.injectEndpoints({
       },
       invalidatesTags: ["books"],
     }),
+    updateBook: build.mutation({
+      query: (args) => {
+        return {
+          url: `/books/${args.id}`,
+          method: "PATCH",
+          body: args.data,
+        };
+      },
+      invalidatesTags: ["books"],
+    }),
   }),
 });
 
 export const {
   useGetAllBooksQuery,
+  useGetSingleBookQuery,
   useAddBookMutation,
   useRemoveBookMutation,
+  useUpdateBookMutation,
 } = booksApi;
