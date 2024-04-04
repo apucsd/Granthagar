@@ -1,7 +1,90 @@
-import React from "react";
-
+"use client";
+import React, { useState } from "react";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { useDeleteUserMutation, useGetAllUserQuery } from "@/redux/api/userApi";
+import TableLoader from "@/components/ui/loader/TableLoader";
+import { IUser } from "@/types/index.type";
+import { Edit2Icon, TrashIcon } from "lucide-react";
+import { ConfirmModal } from "@/components/modal/ConfirmModal";
+import { toast } from "sonner";
 const ManageUsers = () => {
-  return <div>this is manage users</div>;
+  const { data, isFetching } = useGetAllUserQuery(undefined);
+  const [deleteUser] = useDeleteUserMutation();
+  const [id, setId] = useState<undefined | string>();
+  const [openModal, setOpenModal] = useState(false);
+
+  const handleDelete = async () => {
+    try {
+      const res = await deleteUser(id).unwrap();
+      if (res?.success) {
+        toast.success("A User is deleted successfully!!!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return (
+    <div>
+      <Table className="h-full w-full">
+        <TableCaption>A list of all recent books.</TableCaption>
+        <TableHeader>
+          <TableRow>
+            <TableHead className="w-[100px]">SL</TableHead>
+            <TableHead>Name</TableHead>
+            <TableHead>Email</TableHead>
+            <TableHead className="text-right">Role</TableHead>
+            <TableHead className="text-center">Action</TableHead>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {isFetching ? (
+            // Show loading skeleton while data is loading
+            <>
+              <TableLoader />
+              <TableLoader />
+              <TableLoader />
+              <TableLoader />
+              <TableLoader />
+              <TableLoader />
+            </>
+          ) : (
+            data?.data.map((user: IUser, index: number) => (
+              <TableRow key={user._id}>
+                <TableCell className="font-medium">{index + 1}</TableCell>
+                <TableCell>{user.name}</TableCell>
+                <TableCell>{user.email}</TableCell>
+                <TableCell className="text-right">{user.role}</TableCell>
+                <TableCell className="flex items-center gap-6 justify-center text-right">
+                  <TrashIcon
+                    onClick={() => {
+                      setId(user._id);
+                      setOpenModal(true);
+                    }}
+                    className="text-red-500 size-5 cursor-pointer"
+                  />
+                  <ConfirmModal
+                    handleConfirm={handleDelete}
+                    open={openModal}
+                    setOpen={setOpenModal}
+                  />
+
+                  <Edit2Icon className="text-green-500 size-5 cursor-pointer" />
+                </TableCell>
+              </TableRow>
+            ))
+          )}
+        </TableBody>
+      </Table>
+    </div>
+  );
 };
 
 export default ManageUsers;
