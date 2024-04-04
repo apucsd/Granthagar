@@ -29,8 +29,20 @@ const booksApi = baseApi.injectEndpoints({
       },
       invalidatesTags: ["books"],
     }),
+    removeBook: build.mutation({
+      query: (id) => {
+        return {
+          url: `/books/${id}`,
+          method: "DELETE",
+        };
+      },
+      invalidatesTags: ["books"],
+    }),
   }),
-  overrideExisting: false,
 });
 
-export const { useGetAllBooksQuery, useAddBookMutation } = booksApi;
+export const {
+  useGetAllBooksQuery,
+  useAddBookMutation,
+  useRemoveBookMutation,
+} = booksApi;

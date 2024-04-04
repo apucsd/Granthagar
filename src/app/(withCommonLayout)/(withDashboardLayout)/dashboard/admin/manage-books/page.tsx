@@ -11,14 +11,22 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-import { useGetAllBooksQuery } from "@/redux/api/booksApi";
+import {
+  useGetAllBooksQuery,
+  useRemoveBookMutation,
+} from "@/redux/api/booksApi";
 import { TBook } from "@/types/index.type";
 import { Edit2Icon, TrashIcon } from "lucide-react";
 import CustomPagination from "@/components/ui/CustomPagination";
 import AddBookModal from "@/components/modal/AddBookModal";
+import { toast } from "sonner";
+import { ConfirmModal } from "@/components/modal/ConfirmModal";
 
 const ManageBooks = () => {
+  const [findId, setFindId] = useState("");
+  const [openModal, setOpenModal] = useState(false);
   const [page, setPage] = useState(1);
+  const [removeBook] = useRemoveBookMutation();
   const { data: booksData, isFetching } = useGetAllBooksQuery([
     { name: "limit", value: 6 },
     { name: "page", value: page },
@@ -26,12 +34,23 @@ const ManageBooks = () => {
 
   // console.log(booksData?.meta);
   const totalPages = booksData?.meta?.totalPage || 0;
+
+  const handleDelete = async () => {
+    try {
+      const res = await removeBook(findId).unwrap();
+      if (res?.success) {
+        toast.success("A Book is deleted successfully!!!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="h-full">
-      <div className="flex justify-end  my-3">
+      <div className="flex justify-end">
         <AddBookModal />
       </div>
-      <div></div>
+
       <Table className="h-full w-full">
         <TableCaption>A list of all recent books.</TableCaption>
         <TableHeader>
@@ -63,7 +82,18 @@ const ManageBooks = () => {
                 <TableCell>{book.authors[0]}</TableCell>
                 <TableCell className="text-right">{book.price} ৳</TableCell>
                 <TableCell className="flex items-center gap-5 justify-center text-right">
-                  <TrashIcon className="text-red-500 size-5 cursor-pointer" />
+                  <TrashIcon
+                    onClick={() => {
+                      setFindId(book._id);
+                      setOpenModal(true);
+                    }}
+                    className="text-red-500 size-5 cursor-pointer"
+                  />
+                  <ConfirmModal
+                    open={openModal}
+                    setOpen={setOpenModal}
+                    handleConfirm={handleDelete}
+                  />
                   <Edit2Icon className="text-green-500 size-5 cursor-pointer" />
                 </TableCell>
               </TableRow>
