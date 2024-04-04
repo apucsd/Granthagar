@@ -35,13 +35,13 @@ const CustomInput = ({ name, type, label, placeholder }: TInputProps) => {
               >
                 {label}
               </label>
+              {errors[name] && ( // Check if errors[name] exists
+                <div className="text-red-500  text-nowrap w-full block  text-xs">
+                  {(errors[name] as FieldError).message}{" "}
+                  {/* Cast errors[name] as FieldError */}
+                </div>
+              )}
             </div>
-            {errors[name] && ( // Check if errors[name] exists
-              <span className="text-red-500 text-xs mt-1">
-                {(errors[name] as FieldError).message}{" "}
-                {/* Cast errors[name] as FieldError */}
-              </span>
-            )}
           </>
         );
       }}
