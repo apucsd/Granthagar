@@ -1,6 +1,12 @@
 import { Controller, useFormContext } from "react-hook-form";
-import { FieldError } from "react-hook-form";
-import Select from "react-select";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 
 type TOption = { value: string; label: string };
 type TSelectProps = {
@@ -14,26 +20,23 @@ const CustomSelect = ({ name, options }: TSelectProps) => {
     <Controller
       control={control}
       name={name}
-      render={({ field, formState: { errors } }) => {
+      render={({ field: { onChange } }) => {
         return (
           <>
-            <Select
-              styles={{
-                control: (base) => ({
-                  ...base,
-                  width: "100%",
-                  height: "100%",
-                }),
-              }}
-              {...field}
-              options={options}
-            />
-            {errors[name] && ( // Check if errors[name] exists
-              <span className="text-red-500 text-xs mt-1">
-                {(errors[name] as FieldError).message}{" "}
-                {/* Cast errors[name] as FieldError */}
-              </span>
-            )}
+            <Select onValueChange={(value) => onChange(value)}>
+              <SelectTrigger className=" border-b h-12">
+                <SelectValue className="uppercase" placeholder={name} />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  {options.map((option, i) => (
+                    <SelectItem key={i} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </>
         );
       }}

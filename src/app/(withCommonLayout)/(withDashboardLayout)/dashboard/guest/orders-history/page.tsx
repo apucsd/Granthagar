@@ -1,7 +1,7 @@
 import NotFoundProduct from "@/components/ui/NotFoundProduct";
 import React from "react";
 
-const GuestOrdersPage = () => {
+const OrdersHistory = () => {
   return (
     <div>
       <NotFoundProduct />
@@ -9,4 +9,4 @@ const GuestOrdersPage = () => {
   );
 };
 
-export default GuestOrdersPage;
+export default OrdersHistory;

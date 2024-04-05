@@ -49,7 +49,7 @@ const BookDetailsPage = async ({ params }: { params: { bookId: string } }) => {
               <p className="text-slate-700">Written By</p>
               <p className="font-semibold">
                 {book.authors?.map((author: string) => (
-                  <>{author}, </>
+                  <span key={author}>{author}, </span>
                 ))}
               </p>
             </div>
@@ -107,7 +107,7 @@ const BookDetailsPage = async ({ params }: { params: { bookId: string } }) => {
               <li> {book.title}</li>
               <li>
                 {book.authors?.map((author: string) => (
-                  <>{author}, </>
+                  <span key={author}>{author}, </span>
                 ))}
               </li>
               <li>{book.isbn}</li>
@@ -116,7 +116,7 @@ const BookDetailsPage = async ({ params }: { params: { bookId: string } }) => {
               <li>{book.publicationYear}</li>
               <li>
                 {book.category?.map((item: string) => (
-                  <>{item}, </>
+                  <span key={item}>{item}, </span>
                 ))}
               </li>
             </ul>

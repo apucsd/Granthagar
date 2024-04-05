@@ -75,6 +75,7 @@ const ManageBooks = () => {
               <TableLoader />
               <TableLoader />
               <TableLoader />
+              <TableLoader />
             </>
           ) : (
             // Render actual data when loaded

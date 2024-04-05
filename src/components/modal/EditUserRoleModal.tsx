@@ -8,14 +8,14 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog";
 import { useUpdateUserMutation } from "@/redux/api/userApi";
 import { toast } from "sonner";
 
-const EditUserRoleModal = ({ id, open, setOpen }: any) => {
+const EditUserRoleModal = ({ email, open, setOpen }: any) => {
   const [updateUser] = useUpdateUserMutation();
   const handleSubmit = async (values: FieldValues) => {
     const backendData = {
       data: {
-        role: values.role.value,
+        role: values.role,
       },
-      id: id,
+      email: email,
     };
     try {
       const res = await updateUser(backendData).unwrap();

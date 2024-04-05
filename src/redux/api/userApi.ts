@@ -33,7 +33,7 @@ const useApi = baseApi.injectEndpoints({
       query: (args) => {
         // console.log(args);
         return {
-          url: `/users/${args.id}`,
+          url: `/users/${args.email}`,
           method: "PATCH",
           body: args.data,
         };

@@ -29,6 +29,7 @@ const CustomForm = ({
   const methods = useForm(formConfig);
   const submitHandler = (data: FieldValues) => {
     onSubmit(data);
+    methods.reset();
   };
   return (
     <FormProvider {...methods}>

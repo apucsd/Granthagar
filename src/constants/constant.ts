@@ -218,3 +218,20 @@ export const USER_ROLE = {
   ADMIN: "admin",
   GUEST: "guest",
 };
+
+export const useDefaultValues = {
+  name: "",
+  firstName: "",
+  lastName: "",
+  dateOfBirth: "",
+  gender: "Male",
+  address: {
+    street: "",
+    city: "",
+    state: "",
+    country: "",
+    zipCode: "",
+  },
+  phoneNumber: "",
+  image: "",
+};

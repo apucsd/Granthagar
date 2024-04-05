@@ -20,6 +20,7 @@ const ManageUsers = () => {
   const { data, isFetching } = useGetAllUserQuery(undefined);
   const [deleteUser] = useDeleteUserMutation();
   const [id, setId] = useState<undefined | string>();
+  const [email, setEmail] = useState<undefined | string>();
   const [openModal, setOpenModal] = useState(false);
   const [openEditRoleModal, setOpenEditRoleModal] = useState(false);
 
@@ -80,7 +81,7 @@ const ManageUsers = () => {
 
                   <Edit2Icon
                     onClick={() => {
-                      setId(user._id);
+                      setEmail(user.email);
                       setOpenEditRoleModal(true);
                     }}
                     className="text-green-500 size-5 cursor-pointer"
@@ -88,7 +89,7 @@ const ManageUsers = () => {
                   <EditUserRoleModal
                     open={openEditRoleModal}
                     setOpen={setOpenEditRoleModal}
-                    id={id}
+                    email={email}
                   />
                 </TableCell>
               </TableRow>

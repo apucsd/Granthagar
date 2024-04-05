@@ -38,7 +38,7 @@ const BookLargeCard = ({
         <div className="flex justify-between items-center">
           <p className=" truncate text-sm uppercase text-primary">
             {category?.map((item) => (
-              <>{item}, </>
+              <span key={item}>{item}, </span>
             ))}
           </p>
         </div>

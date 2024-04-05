@@ -12,7 +12,7 @@ const AdminPage = () => {
   }, []);
 
   const { data } = useGetAllBooksQuery([]);
-  console.log(data);
+  // console.log(data);
   return (
     <div>
       <div className="">
