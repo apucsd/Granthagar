@@ -41,7 +41,6 @@ const EditUserRoleModal = ({ id, open, setOpen }: any) => {
               options={[
                 { value: "guest", label: "Guest" },
                 { value: "admin", label: "Admin" },
-                { value: "seller", label: "Seller" },
               ]}
             />
 

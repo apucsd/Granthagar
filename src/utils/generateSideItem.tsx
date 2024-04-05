@@ -32,43 +32,16 @@ export const generateSideItem = (role: TUserRole) => {
           title: "Manage Users",
           icon: <UserCheck2 className="size-5" />,
           href: `${role}/manage-users`,
-        },
-        {
-          id: 4,
-          title: "Manage Orders",
-          icon: <ListOrdered className="size-5" />,
-          href: `${role}/manage-orders`,
         }
-      );
-      break;
-    case USER_ROLE.SELLER:
-      sidebarItem.push(
-        {
-          id: 1,
-          title: "Dashboard",
-          icon: <LayoutDashboard className="size-5" />,
-          href: `${role}`,
-        },
-        {
-          id: 2,
-          title: "Manage Books",
-          icon: <Book className="size-5" />,
-          href: `${role}/manage-books`,
-        },
         // {
-        //   id: 3,
-        //   title: "Orders",
+        //   id: 4,
+        //   title: "Manage Orders",
         //   icon: <ListOrdered className="size-5" />,
-        //   href: `${role}/orders`,
-        // },
-        {
-          id: 4,
-          title: "Manage Orders",
-          icon: <ListOrdered className="size-5" />,
-          href: `${role}/manage-orders`,
-        }
+        //   href: `${role}/manage-orders`,
+        // }
       );
       break;
+
     case USER_ROLE.GUEST:
       sidebarItem.push(
         {
