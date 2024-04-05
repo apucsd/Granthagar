@@ -1,5 +1,6 @@
 import BooksCategory from "@/components/pages/home/BooksCategory";
 import FeaturedBooks from "@/components/pages/home/FeaturedBooks";
+import HowItWork from "@/components/pages/home/HowItWork";
 import NewBooks from "@/components/pages/home/NewBooks";
 import ScrollToTop from "@/components/pages/home/ScrollToTop";
 import Slider from "@/components/pages/home/Slider";
@@ -18,6 +19,7 @@ export default async function Home() {
       <NewBooks newBooks={newBooks} />
       <TopAuthorBooks />
       <TopRatedBooks />
+      <HowItWork />
       <Subscribe />
       <ScrollToTop />
     </div>
