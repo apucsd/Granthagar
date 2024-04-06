@@ -3,21 +3,17 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { NavigationMenuItem, NavigationMenuLink } from "../ui/navigation-menu";
 import { Avatar, AvatarFallback } from "../ui/avatar";
-import { getUserInfo, loginOutUser } from "@/services/auth.services";
 import { useRouter } from "next/navigation";
 import { User2Icon } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { logoutUser } from "@/redux/features/authSlice";
 
 const AuthButton = () => {
   const router = useRouter();
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    const user = getUserInfo();
-    setUser(user);
-  }, []);
-
+  const { user } = useAppSelector((state) => state.auth);
+  const dispatch = useAppDispatch();
   const handleLogOut = () => {
-    loginOutUser();
+    dispatch(logoutUser());
     router.refresh();
   };
   return (

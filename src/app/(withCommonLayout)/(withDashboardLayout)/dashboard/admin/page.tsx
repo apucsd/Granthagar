@@ -1,16 +1,10 @@
 "use client";
 import { useGetAllBooksQuery } from "@/redux/api/booksApi";
-import { getUserInfo } from "@/services/auth.services";
+import { useAppSelector } from "@/redux/hooks";
 import { BookAIcon } from "lucide-react";
-import React, { useEffect, useState } from "react";
 
 const AdminPage = () => {
-  const [user, setUser] = useState<null | Record<string, any>>(null);
-  useEffect(() => {
-    const user = getUserInfo();
-    setUser(user);
-  }, []);
-
+  const { user } = useAppSelector((state) => state.auth);
   const { data } = useGetAllBooksQuery([]);
   // console.log(data);
   return (
@@ -49,7 +43,7 @@ const AdminPage = () => {
                     </svg>
                   </div>
                   <div className="pt-1 text-right">
-                    <p className="text-sm font-light capitalize">Pageviews</p>
+                    <p className="text-sm font-light capitalize">Page views</p>
                     <h4 className="text-2xl font-semibold tracking-tighter xl:text-2xl">
                       14,000
                     </h4>

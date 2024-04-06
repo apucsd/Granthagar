@@ -5,21 +5,15 @@ import CustomInput from "@/components/form/CustomInput";
 import { Button } from "@/components/ui/button";
 import { useDefaultValues } from "@/constants/constant";
 import { useUpdateUserMutation } from "@/redux/api/userApi";
+import { useAppSelector } from "@/redux/hooks";
 import { userSchema } from "@/schema/validation.schema";
-import { getUserInfo } from "@/services/auth.services";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useEffect, useState } from "react";
 import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
 
 const AccountDetailsPage = () => {
   const [updateUser] = useUpdateUserMutation();
-  const [user, setUser] = useState<null | Record<string, any>>(null);
-  useEffect(() => {
-    const user = getUserInfo();
-    setUser(user);
-  }, []);
-
+  const { user } = useAppSelector((state) => state.auth);
   const handleSubmit = async (values: FieldValues) => {
     if (user) {
       const userBackendData = {

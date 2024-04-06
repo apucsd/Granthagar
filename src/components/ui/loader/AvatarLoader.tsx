@@ -1,10 +1,10 @@
 import { User2Icon } from "lucide-react";
 import { Avatar, AvatarFallback } from "../avatar";
-import { getUserInfo } from "@/services/auth.services";
 import { Button } from "../button";
+import { useAppSelector } from "@/redux/hooks";
 
 const AvatarLoader = () => {
-  const user = getUserInfo();
+  const { user } = useAppSelector((state) => state.auth);
   return (
     <>
       {user ? (

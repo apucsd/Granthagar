@@ -1,10 +1,10 @@
 "use client";
 import { useEffect } from "react";
-import { getUserInfo } from "@/services/auth.services";
 import { useRouter } from "next/navigation";
+import { useAppSelector } from "@/redux/hooks";
 
 const DashboardPage = () => {
-  const user = getUserInfo();
+  const { user } = useAppSelector((state) => state.auth);
   const router = useRouter();
 
   useEffect(() => {

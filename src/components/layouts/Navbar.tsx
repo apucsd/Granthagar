@@ -56,16 +56,14 @@ const Navbar = () => {
             >
               <AlignLeft />
             </div>
-            <Link className="md:flex  relative items-center " href="/">
+            <Link className="  hidden md:flex relative items-center " href="/">
               <lord-icon
                 src="https://cdn.lordicon.com/qwjfapmb.json"
                 trigger="hover"
                 colors="primary:#ebe6ef,secondary:#4F46E5,tertiary:#3a3347,quaternary:#f24c00,quinary:#faf9d1"
                 style={{ width: 80, height: 50 }}
               />
-              <p className="font-semibold hidden md:block -ms-5 uppercase">
-                Granthagar
-              </p>
+              <p className="font-semibold  -ms-5 uppercase">Granthagar</p>
             </Link>
           </div>
 

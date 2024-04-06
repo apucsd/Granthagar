@@ -1,13 +1,19 @@
 "use client";
 import Container from "@/components/ui/Container";
 import LinkItem from "@/components/ui/LinkItem";
-import { getUserInfo } from "@/services/auth.services";
+import { useAppSelector } from "@/redux/hooks";
 import { TUserRole } from "@/types/index.type";
 import { generateSideItem } from "@/utils/generateSideItem";
+import { useRouter } from "next/navigation";
 import React, { ReactNode } from "react";
 
 const DashboardLayout = ({ children }: { children: ReactNode }) => {
-  const user = getUserInfo();
+  const { user } = useAppSelector((state) => state.auth);
+  const router = useRouter();
+
+  if (!user) {
+    router.push("/login");
+  }
   return (
     <Container>
       <div className="grid grid-cols-12">

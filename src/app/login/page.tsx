@@ -5,7 +5,6 @@ import CustomInput from "@/components/form/CustomInput";
 import { Button } from "@/components/ui/button";
 import { loginUser } from "@/services/authActions/loginUser";
 import { registerUser } from "@/services/authActions/registerUser";
-import { storeUserInfo } from "@/services/auth.services";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -13,9 +12,13 @@ import { useState } from "react";
 import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
 import { loginSchema, registerSchema } from "@/schema/validation.schema";
+import { decodedToken } from "@/services/jwt.decode";
+import { useAppDispatch } from "@/redux/hooks";
+import { setUser } from "@/redux/features/authSlice";
 
 const LoginPage = () => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const [registerPage, setRegisterPage] = useState(false);
   // REGISTER USER FUNCTION
   const handleRegister = async (data: FieldValues) => {
@@ -30,7 +33,13 @@ const LoginPage = () => {
           password: data?.password,
         });
         if (result.success) {
-          storeUserInfo(result.data.accessToken);
+          const user = decodedToken(res?.data?.accessToken);
+          dispatch(
+            setUser({
+              user: user,
+              token: res?.data?.accessToken,
+            })
+          );
           router.push("/dashboard");
         }
       } else {
@@ -50,7 +59,13 @@ const LoginPage = () => {
     try {
       const res = await loginUser(data);
       if (res.success) {
-        storeUserInfo(res.data.accessToken);
+        const user = decodedToken(res?.data?.accessToken);
+        dispatch(
+          setUser({
+            user: user,
+            token: res?.data?.accessToken,
+          })
+        );
 
         toast.success("Your account login successfully", {
           duration: 2000,
