@@ -1,4 +1,5 @@
 import BooksCategory from "@/components/pages/home/BooksCategory";
+import FBMessenger from "@/components/pages/home/FBMessenger";
 import FeaturedBooks from "@/components/pages/home/FeaturedBooks";
 import HowItWork from "@/components/pages/home/HowItWork";
 import NewBooks from "@/components/pages/home/NewBooks";
@@ -22,6 +23,7 @@ export default async function Home() {
       <HowItWork />
       <Subscribe />
       <ScrollToTop />
+      <FBMessenger />
     </div>
   );
 }

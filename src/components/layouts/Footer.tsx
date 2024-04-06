@@ -19,7 +19,7 @@ const Footer = () => {
                 <p className="font-semibold -ms-5 uppercase">Granthagar</p>
               </Link>
 
-              <Image height={300} width={400} src={sslCom} alt="" />
+              <Image height={300} width={300} src={sslCom} alt="" />
               <ul className="flex justify-center gap-6 mt-8 md:gap-8 sm:justify-start">
                 <li>
                   <a
@@ -250,7 +250,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="pt-6 mt-12 border-t border-primary">
+          <div className="pt-6 -mb-10 mt-12 border-t border-primary">
             <div className="text-center sm:flex sm:justify-between sm:text-left">
               <p className="text-sm ">
                 <span className="block sm:inline">All rights reserved.</span>

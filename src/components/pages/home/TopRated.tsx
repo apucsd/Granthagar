@@ -11,7 +11,7 @@ const TopRatedBooks = async () => {
   return (
     <Container>
       <div className="flex  justify-between gap-1 items-center my-5">
-        <h1 className="text-4xl font-semibold text-primary my-3 text-nowrap">
+        <h1 className="text-2xl md:text-4xl font-semibold text-primary my-3 text-nowrap">
           Top Rated Books
         </h1>
         <hr className="h-0.5 bg-primary w-full" />

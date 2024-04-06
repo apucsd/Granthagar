@@ -11,11 +11,11 @@ const FeaturedBooks = async () => {
     <Container>
       <div className="grid md:grid-cols-2 gap-5 justify-center items-center">
         <div className=" my-3">
-          <h1 className="text-4xl font-semibold text-primary  text-nowrap">
+          <h1 className="text-2xl md:text-4xl font-semibold text-primary  text-nowrap">
             Featured Books
           </h1>
 
-          <p className="text-xs mt-2 ">
+          <p className=" mt-3 ">
             Discover Your Next Literary Adventure: Curated Gems for Every
             Reading Mood!
           </p>
