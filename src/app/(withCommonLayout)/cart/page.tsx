@@ -67,7 +67,7 @@ const CartPage = () => {
                               </div>
                               <div className="mt-4 flex items-end justify-between sm:mt-0 sm:items-start sm:justify-end">
                                 <p className="shrink-0 w-20 text-base font-semibold text-gray-900 sm:order-2 sm:ml-8 sm:text-right">
-                                  {product.selectedPrice} ৳
+                                  {product.selectedPrice.toFixed(2)} ৳
                                 </p>
                                 <div className="sm:order-1">
                                   <div className="mx-auto flex h-8 items-stretch text-gray-600">

@@ -11,7 +11,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
   return (
     <Container>
       <div className="grid grid-cols-12">
-        <div className="col-span-3  min-h-screen border-e">
+        <div className="col-span-12 md:col-span-3  md:min-h-screen border-e">
           <div className="flex flex-col gap-4 p-5 ">
             <h2 className="text-xl font-semibold p-2">My Account</h2>
             <hr />
@@ -20,7 +20,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
             ))}
           </div>
         </div>
-        <div className="col-span-9 p-10  h-full">{children}</div>
+        <div className="col-span-12 md:col-span-9 p-10  h-full">{children}</div>
       </div>
     </Container>
   );
