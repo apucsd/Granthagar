@@ -7,13 +7,18 @@ import { useRouter } from "next/navigation";
 import { User2Icon } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logoutUser } from "@/redux/features/authSlice";
+import { useState } from "react";
+import { ConfirmModal } from "../modal/ConfirmModal";
+import { toast } from "sonner";
 
 const AuthButton = () => {
+  const [openModal, setOpenModal] = useState(false);
   const router = useRouter();
   const { user } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
   const handleLogOut = () => {
     dispatch(logoutUser());
+    toast.success("User logged out successfully!!!", { duration: 1000 });
     router.refresh();
   };
   return (
@@ -22,12 +27,18 @@ const AuthButton = () => {
         <div className="flex gap-2 items-center">
           <NavigationMenuItem>
             <Button
-              onClick={handleLogOut}
+              onClick={() => setOpenModal(true)}
               className="font-semibold"
               variant={"outline"}
             >
               Sign Out
             </Button>
+            <ConfirmModal
+              open={openModal}
+              setOpen={setOpenModal}
+              handleConfirm={handleLogOut}
+              description="Your your sure to logout!!!"
+            />
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuLink href="/dashboard">

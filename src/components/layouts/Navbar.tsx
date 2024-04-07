@@ -30,7 +30,7 @@ const Navbar = () => {
   const { products } = useAppSelector((state) => state.cart);
   const menus = [
     { title: "Home", path: "/" },
-    { title: "All Books", path: "/books" },
+    { title: "Books", path: "/books" },
     { title: "About Us", path: "/about" },
     { title: "Contact Us", path: "/contact-us" },
   ];
@@ -76,7 +76,7 @@ const Navbar = () => {
 
                   <div>
                     <div className="t-0 absolute left-3">
-                      <p className="flex size-2 items-center justify-center rounded-full bg-primary p-2 text-xs text-white">
+                      <p className="flex size-1 items-center justify-center rounded-full bg-primary p-2 text-xs text-white">
                         {products.length}
                       </p>
                     </div>
@@ -105,31 +105,35 @@ const Navbar = () => {
               bounce: 0,
               duration: 0.8,
             }}
-            className=" z-[99999] bg-primary text-white shadow-lg top-0 left-0 w-full max-w-[280px] p-5"
+            className=" z-[99999] fixed h-screen w-[100vw] overflow-hidden  shadow-lg top-0  left-0"
           >
-            <div className="flex w-full  text-end justify-end">
-              <button
-                onClick={() => setShowMenu(!showMenu)}
-                className="bg-white hover:cursor-pointer w-10 text-gray-700 text-lg block rounded-full"
-              >
-                X
-              </button>
-            </div>
-            <div>
-              {/* all link */}
-              <hr className="my-4" />
-              <motion.ul className="flex uppercase flex-col items-center h-screen gap-10 justify-start">
-                {menus.map((menu, i) => (
-                  <Link
-                    className="hover:border-b  transition-all duration-300"
-                    key={i}
-                    href={menu.path}
-                    onClick={() => setShowMenu(!showMenu)}
-                  >
-                    {menu.title}
-                  </Link>
-                ))}
-              </motion.ul>
+            <div className="max-w-[300px] h-screen bg-white p-10">
+              <div className="flex w-full  justify-between">
+                <h1 className="text-xl my-1 font-bold">Menu Categories</h1>
+                <button
+                  onClick={() => setShowMenu(!showMenu)}
+                  className="bg-slate-100 hover:cursor-pointer w-10 text-gray-700 text-lg block rounded-full"
+                >
+                  X
+                </button>
+              </div>
+              <div>
+                {/* all link */}
+
+                <hr className="my-4" />
+                <motion.ul className="flex uppercase  flex-col items-center  gap-10 justify-start">
+                  {menus.map((menu, i) => (
+                    <Link
+                      className="w-full pb-2 border-b transition-all duration-300"
+                      key={i}
+                      href={menu.path}
+                      onClick={() => setShowMenu(!showMenu)}
+                    >
+                      {menu.title}
+                    </Link>
+                  ))}
+                </motion.ul>
+              </div>
             </div>
           </motion.div>
         )}

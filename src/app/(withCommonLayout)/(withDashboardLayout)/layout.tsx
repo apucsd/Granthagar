@@ -12,7 +12,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
   const router = useRouter();
 
   if (!user) {
-    router.push("/login");
+    return router.push("/login");
   }
   return (
     <Container>

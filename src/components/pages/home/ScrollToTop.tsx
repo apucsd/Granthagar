@@ -40,8 +40,8 @@ const ScrollToTop = () => {
           transition={{ duration: 0.2 }} // Set duration here
           style={{
             position: "fixed",
-            bottom: "50px",
-            right: "50px",
+            bottom: "100px",
+            right: "40px",
             zIndex: 9999,
           }}
         >

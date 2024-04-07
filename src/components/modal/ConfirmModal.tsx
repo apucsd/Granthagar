@@ -13,16 +13,23 @@ type TProps = {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   handleConfirm: any;
+  description?: string;
 };
-export function ConfirmModal({ open, setOpen, handleConfirm }: TProps) {
+export function ConfirmModal({
+  open,
+  setOpen,
+  handleConfirm,
+  description,
+}: TProps) {
   return (
     <AlertDialog open={open} onOpenChange={setOpen}>
-      <AlertDialogContent>
+      <AlertDialogContent className="w-full max-w-md">
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            {description
+              ? description
+              : " This action cannot be undone. This will permanently delete"}
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

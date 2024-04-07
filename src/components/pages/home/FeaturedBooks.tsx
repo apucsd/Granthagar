@@ -20,7 +20,9 @@ const FeaturedBooks = async () => {
             Reading Mood!
           </p>
           <br />
-          <BookLargeCard {...featuredBooks[1]} />
+          <div className="mt-5">
+            <BookLargeCard {...featuredBooks[1]} />
+          </div>
         </div>
         <div className="grid grid-cols-1  sm:grid-cols-2  md:grid-cols-3 place-items-center  gap-3">
           {featuredBooks.slice(2, 5).map((book: TBook) => (
