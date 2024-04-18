@@ -11,14 +11,14 @@ const AdminPage = () => {
     <div>
       <div className="">
         <div className=" mx-auto">
-          <div className="flex justify-between mb-3">
+          <div className="flex justify-between flex-wrap mb-3">
             <h2 className="text-4xl text-primary font-bold ">Welcome</h2>
             <p>{user?.userEmail}</p>
           </div>
 
           {/* <h2 className="text-4xl font-bold  mb-8">Statistics</h2> */}
-          <div className="flex flex-wrap gap-x-4 gap-y-12 bg-gray-100 px-4 py-20 lg:px-20">
-            <div className="flex w-72">
+          <div className="grid grid-cols-1 gap-5 space-y-5 md:grid-cols-3 mt-20 ">
+            <div className="flex">
               <div className="flex w-full max-w-full flex-col break-words rounded-lg border border-gray-100 bg-white text-gray-600 shadow-lg">
                 <div className="p-3">
                   <div className="absolute -mt-10 h-16 w-16 rounded-xl bg-gradient-to-tr from-primary to-primary/70 text-center text-white shadow-lg">
@@ -60,7 +60,7 @@ const AdminPage = () => {
                 </div>
               </div>
             </div>
-            <div className="flex w-72">
+            <div className="flex">
               <div className="flex w-full max-w-full flex-col break-words rounded-lg border border-gray-100 bg-white text-gray-600 shadow-lg">
                 <div className="p-3">
                   <div className="absolute -mt-10 h-16 w-16 rounded-xl bg-gradient-to-tr from-primary to-primary/70 text-center text-white shadow-lg">
@@ -97,7 +97,7 @@ const AdminPage = () => {
                 </div>
               </div>
             </div>
-            <div className="flex w-72">
+            <div className="flex">
               <div className="flex w-full max-w-full flex-col break-words rounded-lg border border-gray-100 bg-white text-gray-600 shadow-lg">
                 <div className="p-3">
                   <div className="absolute -mt-10 h-16 w-16 flex flex-col justify-center items-center rounded-xl bg-gradient-to-tr from-primary to-primary/70 text-center text-white shadow-lg">
@@ -133,7 +133,7 @@ const AdminPage = () => {
                 </div>
               </div>
             </div>
-            <div className="flex w-72">
+            <div className="flex">
               <div className="flex w-full max-w-full flex-col break-words rounded-lg border border-gray-100 bg-white text-gray-600 shadow-lg">
                 <div className="p-3">
                   <div className="absolute -mt-10 h-16 w-16 rounded-xl bg-gradient-to-tr from-primary to-primary/70 text-center text-white shadow-lg">

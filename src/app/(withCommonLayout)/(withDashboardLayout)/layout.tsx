@@ -18,7 +18,7 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
     <Container>
       <div className="grid grid-cols-12">
         <div className="col-span-12 md:col-span-3  md:min-h-screen border-e">
-          <div className="flex flex-col gap-4 p-5 ">
+          <div className="flex flex-col gap-4 md:p-5 ">
             <h2 className="text-xl font-semibold p-2">My Account</h2>
             <hr />
             {generateSideItem(user?.role as TUserRole).map((item) => (
@@ -26,7 +26,9 @@ const DashboardLayout = ({ children }: { children: ReactNode }) => {
             ))}
           </div>
         </div>
-        <div className="col-span-12 md:col-span-9 p-10  h-full">{children}</div>
+        <div className="col-span-12 md:col-span-9 md:p-10 w-full  h-full">
+          {children}
+        </div>
       </div>
     </Container>
   );

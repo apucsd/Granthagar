@@ -32,11 +32,11 @@ const Navbar = () => {
     { title: "Home", path: "/" },
     { title: "Books", path: "/books" },
     { title: "About Us", path: "/about" },
-    { title: "Contact Us", path: "/contact-us" },
+    { title: "Contact Us", path: "/contact" },
   ];
 
   return (
-    <nav className="bg-[#ebefe044] relative h-full   w-full max-w-7xl mx-auto border-b md:border-0">
+    <nav className=" relative h-full   w-full max-w-7xl mx-auto border-b md:border-0">
       <Headroom
         style={{
           transition: "all 2s ease-in-out",
@@ -47,7 +47,7 @@ const Navbar = () => {
       >
         <div>{/* <NavbarHeader></NavbarHeader> */}</div>
         <div
-          className={`md:px-10 px-10 md:py-2  p-5 md:p-0 backdrop-blur-sm transition-all duration-1000 bg-white/70 h-full flex gap-4 justify-between  flex-wrap  items-center`}
+          className={`md:px-5  md:py-2  p-5 md:p-0 backdrop-blur-sm transition-all duration-1000 bg-white/70 h-full flex gap-4 justify-between  flex-wrap  items-center`}
         >
           <div className="flex justify-center items-center gap-1">
             <div
@@ -89,7 +89,7 @@ const Navbar = () => {
           </NavigationMenu>
         </div>
       </Headroom>
-      <div className="hidden  md:block md:px-10  px-10 md:py-2 border-t  p-5  transition-all h-full">
+      <div className="hidden  md:block  md:py-1 border-t border-b  p-5  transition-all h-full">
         <NavigationMenuNav />
       </div>
       {/* menu items here */}
@@ -105,9 +105,9 @@ const Navbar = () => {
               bounce: 0,
               duration: 0.8,
             }}
-            className=" z-[99999] fixed h-screen w-[100vw] overflow-hidden  shadow-lg top-0  left-0"
+            className=" z-[99999] fixed h-screen w-[100vw] overflow-hidden    top-0  left-0"
           >
-            <div className="max-w-[300px] h-screen bg-white p-10">
+            <div className="max-w-[300px] h-screen bg-white  p-10">
               <div className="flex w-full  justify-between">
                 <h1 className="text-xl my-1 font-bold">Menu Categories</h1>
                 <button

@@ -2,7 +2,7 @@ import FilterOptions from "@/components/layouts/FilterOptions";
 import Breadcrumbs from "@/components/ui/Breadcrumb";
 import Container from "@/components/ui/Container";
 import FilterByDate from "@/components/ui/FilterByDate";
-import NotFoundProduct from "@/components/ui/NotFoundProduct";
+import NotFoundProduct from "@/components/ui/NotFound";
 import BookLargeCard from "@/components/ui/card/BookLargeCard";
 import { getBooksByQuery } from "@/services/bookActions/getBookByQuery";
 import { TBook } from "@/types/index.type";

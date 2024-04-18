@@ -56,7 +56,7 @@ const AddBookModal = () => {
       <DialogTrigger asChild>
         <Button className="-mt-4 mb-2">Add Book</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-2xl overflow-y-auto max-h-[90vh] scroll-smooth hide-scrollbar">
+      <DialogContent className=" sm:max-w-2xl overflow-y-auto max-h-[90vh] scroll-smooth hide-scrollbar">
         <DialogHeader>
           <DialogTitle>Add A Book</DialogTitle>
         </DialogHeader>

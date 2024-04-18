@@ -49,84 +49,85 @@ const ManageBooks = () => {
     }
   };
   return (
-    <div className="h-full">
+    <div className="h-full w-full">
       <div className="flex justify-end">
         <AddBookModal />
       </div>
-
-      <Table className="h-full w-full">
-        <TableCaption>A list of all recent books.</TableCaption>
-        <TableHeader>
-          <TableRow>
-            <TableHead className="w-[100px]">SL</TableHead>
-            <TableHead>Book Title</TableHead>
-            <TableHead>Author</TableHead>
-            <TableHead className="text-right">Price</TableHead>
-            <TableHead className="text-center">Action</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {isFetching ? (
-            // Show loading skeleton while data is loading
-            <>
-              <TableLoader />
-              <TableLoader />
-              <TableLoader />
-              <TableLoader />
-              <TableLoader />
-              <TableLoader />
-              <TableLoader />
-            </>
-          ) : (
-            // Render actual data when loaded
-            booksData?.data.map((book: TBook, index: number) => (
-              <TableRow key={book._id}>
-                <TableCell className="font-medium">{index + 1}</TableCell>
-                <TableCell>{book.title}</TableCell>
-                <TableCell>{book.authors[0]}</TableCell>
-                <TableCell className="text-right">{book.price} ৳</TableCell>
-                <TableCell className="flex items-center gap-6 justify-center text-right">
-                  <TrashIcon
-                    onClick={() => {
-                      setFindId(book._id);
-                      setOpenModal(true);
-                    }}
-                    className="text-red-500 size-5 cursor-pointer"
-                  />
-                  <ConfirmModal
-                    open={openModal}
-                    setOpen={setOpenModal}
-                    handleConfirm={handleDelete}
-                  />
-                  <Edit2Icon
-                    onClick={() => {
-                      setFindId(book._id);
-                      setOpenUpdateModal(true);
-                    }}
-                    className="text-green-500 size-5 cursor-pointer"
-                  />
-                  <UpdateBookModal
-                    open={openUpdateModal}
-                    setOpen={setOpenUpdateModal}
-                    id={findId}
-                  />
-                </TableCell>
-              </TableRow>
-            ))
-          )}
-        </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TableCell colSpan={5} className="text-right">
-              <CustomPagination
-                page={page}
-                setPage={setPage}
-                totalPages={totalPages}
-              />
-            </TableCell>
-          </TableRow>
-        </TableFooter>
-      </Table>
+      <div className="overflow-x-auto relative hide-scrollbar">
+        <Table className="">
+          <TableCaption>A list of all recent books.</TableCaption>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="w-[100px]">SL</TableHead>
+              <TableHead>Book Title</TableHead>
+              <TableHead>Author</TableHead>
+              <TableHead className="text-right">Price</TableHead>
+              <TableHead className="text-center">Action</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody className="overflow-auto">
+            {isFetching ? (
+              // Show loading skeleton while data is loading
+              <>
+                <TableLoader />
+                <TableLoader />
+                <TableLoader />
+                <TableLoader />
+                <TableLoader />
+                <TableLoader />
+                <TableLoader />
+              </>
+            ) : (
+              // Render actual data when loaded
+              booksData?.data.map((book: TBook, index: number) => (
+                <TableRow key={book._id}>
+                  <TableCell className="font-medium">{index + 1}</TableCell>
+                  <TableCell>{book.title}</TableCell>
+                  <TableCell>{book.authors[0]}</TableCell>
+                  <TableCell className="text-right">{book.price} ৳</TableCell>
+                  <TableCell className="flex items-center gap-6 justify-center text-right">
+                    <TrashIcon
+                      onClick={() => {
+                        setFindId(book._id);
+                        setOpenModal(true);
+                      }}
+                      className="text-red-500 size-5 cursor-pointer"
+                    />
+                    <ConfirmModal
+                      open={openModal}
+                      setOpen={setOpenModal}
+                      handleConfirm={handleDelete}
+                    />
+                    <Edit2Icon
+                      onClick={() => {
+                        setFindId(book._id);
+                        setOpenUpdateModal(true);
+                      }}
+                      className="text-green-500 size-5 cursor-pointer"
+                    />
+                    <UpdateBookModal
+                      open={openUpdateModal}
+                      setOpen={setOpenUpdateModal}
+                      id={findId}
+                    />
+                  </TableCell>
+                </TableRow>
+              ))
+            )}
+          </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TableCell colSpan={5} className="text-right">
+                <CustomPagination
+                  page={page}
+                  setPage={setPage}
+                  totalPages={totalPages}
+                />
+              </TableCell>
+            </TableRow>
+          </TableFooter>
+        </Table>
+      </div>
     </div>
   );
 };

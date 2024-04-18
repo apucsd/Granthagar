@@ -35,12 +35,12 @@ const ManageUsers = () => {
     }
   };
   return (
-    <div>
-      <Table className="h-full w-full">
+    <div className="overflow-x-auto relative hide-scrollbar">
+      <Table className=" overflow-auto">
         <TableCaption>A list of all recent books.</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">SL</TableHead>
+            <TableHead className="">SL</TableHead>
             <TableHead>Name</TableHead>
             <TableHead>Email</TableHead>
             <TableHead className="text-right">Role</TableHead>

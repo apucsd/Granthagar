@@ -105,13 +105,15 @@ const BooksCategory = () => {
                 href={`${item.link}`}
                 className="hover:text-primary hover:cursor-pointer text-gray-700"
               >
-                <Image
-                  height={80}
-                  width={80}
-                  src={item.image_url}
-                  alt=""
-                  className="object-center rounded-full mx-auto"
-                />
+                <div className="w-[60px] md:w-[80px] h-[80px] mx-auto">
+                  <Image
+                    height={80}
+                    width={80}
+                    src={item.image_url}
+                    alt=""
+                    className="object-center rounded-full mx-auto"
+                  />
+                </div>
                 <h2 className="text-center my-2 font-semibold">
                   {item.category}
                 </h2>

@@ -4,7 +4,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import Provider from "@/lib/Providers";
 import NextTopLoader from "nextjs-toploader";
-const hind_Siliguri = Hind_Siliguri({ subsets: ["bengali"], weight: "400" });
+const hind_Siliguri = Hind_Siliguri({ subsets: ["bengali"], weight: "300" });
 
 export const metadata: Metadata = {
   title: "Granthagar",

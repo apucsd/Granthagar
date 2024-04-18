@@ -13,7 +13,7 @@ import { categories, writers } from "@/constants/constant";
 
 const NavigationMenuNav = () => {
   return (
-    <NavigationMenu className="text-[16px]">
+    <NavigationMenu className="text-[16px] px-5">
       <NavigationMenuList className="gap-2">
         <NavigationMenuItem className="border-r p-2">
           <NavigationMenuLink
@@ -29,7 +29,7 @@ const NavigationMenuNav = () => {
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent hover:text-primary border-r text-[16px] p-2">
+          <NavigationMenuTrigger className="bg-transparent hover:text-primary border-r text-[16px] p-2 rounded-none">
             Category
           </NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -47,7 +47,7 @@ const NavigationMenuNav = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bg-transparent hover:text-primary border-r text-[16px] p-2">
+          <NavigationMenuTrigger className="bg-transparent hover:text-primary border-r text-[16px] p-2 rounded-none">
             Writer
           </NavigationMenuTrigger>
           <NavigationMenuContent>
