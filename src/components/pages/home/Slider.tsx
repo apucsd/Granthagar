@@ -9,32 +9,32 @@ import "swiper/css";
 import { Pagination, Autoplay } from "swiper/modules";
 import Image from "next/image";
 import Container from "../../ui/Container";
-
+import img1 from "@/assets/slider/img1.png";
+import img2 from "@/assets/slider/img2.png";
+import img3 from "@/assets/slider/img3.png";
+import img4 from "@/assets/slider/img4.png";
+import img5 from "@/assets/slider/img5.png";
 const Slider = () => {
   const data = [
     {
-      name: "something",
-      url: "https://www.panjeree.org/DIR/Com/ECO/banner/page_banner/Category1.png?id=20240213",
+      id: "1",
+      url: img1,
     },
     {
-      name: "something",
-      url: "https://www.panjeree.org/DIR/Com/ECO/banner/main_banner/HomeBanner46.png?id=20240213",
+      id: "2",
+      url: img2,
     },
     {
-      name: "something",
-      url: "https://www.panjeree.org/DIR/Com/ECO/banner/main_banner/HomeBanner52.png?id=20240213",
+      id: "3",
+      url: img3,
     },
     {
-      name: "something",
-      url: "https://www.panjeree.org/DIR/Com/ECO/banner/main_banner/HomeBanner45.png?id=20240213",
+      id: "4",
+      url: img4,
     },
     {
-      name: "something",
-      url: "https://www.panjeree.org/DIR/Com/ECO/banner/main_banner/HomeBanner48.png?id=20240213",
-    },
-    {
-      name: "something",
-      url: "https://www.panjeree.org/DIR/Com/ECO/banner/main_banner/HomeBanner44.png?id=20240213",
+      id: "5",
+      url: img5,
     },
   ];
   return (
