@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Hind_Siliguri } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import Provider from "@/lib/Providers";
 import NextTopLoader from "nextjs-toploader";
-const hind_Siliguri = Hind_Siliguri({ subsets: ["bengali"], weight: "300" });
+const playfair_Display = Playfair_Display({
+  subsets: ["cyrillic"],
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "Granthagar",
@@ -18,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={hind_Siliguri.className}>
+      <body className={playfair_Display.className}>
         <NextTopLoader
           color="#4F46E5"
           initialPosition={0.08}

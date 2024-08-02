@@ -22,7 +22,9 @@ export default async function Home() {
       <TopRatedBooks />
       <HowItWork />
       <Subscribe />
+
       <ScrollToTop />
+
       <FBMessenger />
     </div>
   );
