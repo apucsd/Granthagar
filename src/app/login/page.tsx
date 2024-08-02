@@ -85,7 +85,7 @@ const LoginPage = () => {
   };
   return (
     <Container>
-      <div className="w-full md:w-96 h-full my-10 lg:w-[800px] mx-auto bg-white flex items-center relative overflow-hidden shadow-xl">
+      <div className="w-full md:w-96 h-full my-10 lg:w-[800px] m-auto bg-white flex items-center relative overflow-hidden shadow-xl">
         {/* register form  */}
 
         <div
@@ -173,8 +173,8 @@ const LoginPage = () => {
             onSubmit={handleLogin}
             resolver={zodResolver(loginSchema)}
             defaultValues={{
-              email: "",
-              password: "",
+              email: "granthagar@gmail.com",
+              password: "111111",
             }}
           >
             <div className="space-y-5">
