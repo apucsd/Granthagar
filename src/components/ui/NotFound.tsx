@@ -5,7 +5,7 @@ type TNotfound = {
 const NotFoundProduct = ({ description }: TNotfound) => {
   return (
     <div className="grid h-full place-content-center bg-white  px-4">
-      <div className="text-center">
+      <div className="text-center flex flex-col justify-center items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1024 768"

@@ -15,7 +15,7 @@ import { getBooksByQuery } from "@/services/bookActions/getBookByQuery";
 export default async function Home() {
   const { data: newBooks } = await getBooksByQuery({});
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Slider />
       <BooksCategory />
       <FeaturedBooks />

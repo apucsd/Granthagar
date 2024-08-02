@@ -16,7 +16,10 @@ const BookLargeCard = ({
 }: Partial<TBook>) => {
   const cartData = { _id, title, image, price, authors };
   return (
-    <div className="grid gap-5 grid-cols-12 place-items-center  bg-white shadow-xl border p-4 rounded-md">
+    <div
+      data-aos="zoom-in-right"
+      className="grid gap-5 grid-cols-12 place-items-center  bg-white shadow-xl border p-4 rounded-md"
+    >
       <div className="col-span-12 md:col-span-4 relative">
         <div className="w-full h-full relative">
           <Image

@@ -46,7 +46,7 @@ export default function FAQ() {
     setIsActive((prevIdx) => (prevIdx === idx ? null : idx));
   };
   return (
-    <div className="hidden md:block">
+    <div data-aos="fade-up" className="hidden md:block">
       <div className="max-w-2xl mx-auto my-12 text-center">
         <h2 className="text-2xl md:text-4xl text-primary font-extrabold lg:text-5xl">
           Frequently Asked Questions
@@ -62,7 +62,7 @@ export default function FAQ() {
             {/* toggle item */}
             <button
               onClick={() => handleToggle(idx)}
-              className={`flex h-full w-28 flex-col items-center justify-around ${data?.colorBg} relative rounded-lg text-white`}
+              className={`flex h-full w-32 flex-col items-center justify-around ${data?.colorBg} relative rounded-lg text-white`}
             >
               {isActive === idx && (
                 <span
@@ -76,7 +76,7 @@ export default function FAQ() {
             <div
               className={`grid place-content-center rounded-lg bg-gray-200 dark:bg-[#18181B] shadow-md ${
                 isActive === idx
-                  ? "opacity-1 scale-1 h-[200px] md:h-auto w-[400px] md:w-64 px-5"
+                  ? "opacity-1 scale-1 h-[200px] md:h-auto w-[460px] md:w-64 px-5"
                   : "w-0 scale-0 opacity-0"
               } md:ml-2 mt-12 md:mt-0 text-black duration-300 ease-in-out -rotate-90 md:rotate-0`}
             >

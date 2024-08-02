@@ -8,6 +8,7 @@ const BookCard = ({ _id, title, image, price, authors }: Partial<TBook>) => {
   const cartData = { _id, title, image, price, authors };
   return (
     <div
+      data-aos="zoom-in"
       // style={{ minHeight: "100%" }}
       className="group border-gray-100/30 relative h-full flex  w-full  flex-col flex-grow justify-center self-center overflow-hidden rounded-lg border bg-white shadow-md"
     >

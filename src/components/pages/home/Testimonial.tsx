@@ -67,7 +67,7 @@ const testimonials: Testimonial[] = [
 export default function Testimonial() {
   return (
     <Container>
-      <div>
+      <div data-aos="fade-right">
         <div className="max-w-2xl mx-auto my-12 text-center">
           <h2 className="text-2xl md:text-4xl text-primary font-extrabold lg:text-5xl">
             What our happy clients say

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import Provider from "@/lib/Providers";
 import NextTopLoader from "nextjs-toploader";
+import AOSProvider from "@/lib/AOSProvider";
 const playfair_Display = Playfair_Display({
   subsets: ["cyrillic"],
   weight: "400",
@@ -32,7 +33,9 @@ export default function RootLayout({
           easing="ease"
           speed={200}
         />
-        <Provider>{children}</Provider>
+        <Provider>
+          <AOSProvider>{children}</AOSProvider>
+        </Provider>
 
         <Toaster position="top-right" expand={true} richColors />
       </body>

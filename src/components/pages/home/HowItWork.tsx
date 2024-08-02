@@ -9,7 +9,10 @@ import React from "react";
 const HowItWork = () => {
   return (
     <section id="works" className="container relative py-10 sm:py-16 lg:py-24">
-      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div
+        data-aos="fade-left"
+        className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8"
+      >
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-2xl md:text-4xl text-primary font-extrabold mx-auto  lg:text-5xl">
             How It Works
