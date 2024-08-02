@@ -1,4 +1,5 @@
 import BooksCategory from "@/components/pages/home/BooksCategory";
+import FAQ from "@/components/pages/home/FAQ";
 import FBMessenger from "@/components/pages/home/FBMessenger";
 import FeaturedBooks from "@/components/pages/home/FeaturedBooks";
 import HowItWork from "@/components/pages/home/HowItWork";
@@ -23,6 +24,7 @@ export default async function Home() {
       <TopRatedBooks />
       <HowItWork />
       <Testimonial />
+      <FAQ />
       <Subscribe />
 
       <ScrollToTop />

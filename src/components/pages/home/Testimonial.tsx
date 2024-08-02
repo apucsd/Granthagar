@@ -44,7 +44,7 @@ const testimonials: Testimonial[] = [
     profession: "Software Engineer",
     feedbackHeader: "Top-notch Service!",
     feedback:
-      "Granthagar has an amazing collection of books! Their service is top-notch and delivery is always on time. I found rare books that I couldn't find anywhere else. Highly recommended!",
+      "Granthagar has an amazing collection of books! Their delivery is fast and reliable. Their service is top-notch and delivery is always on time. I found rare books that I couldn't find anywhere else. Highly recommended!",
   },
   {
     name: "Sumaiya Akter",
@@ -68,9 +68,9 @@ export default function Testimonial() {
   return (
     <Container>
       <div>
-        <div className="max-w-2xl mx-auto my-12 text-center ">
-          <h2 className="text-2xl md:text-4xl text-primary font-extrabold mx-auto lg:text-5xl">
-            What our happy client say
+        <div className="max-w-2xl mx-auto my-12 text-center">
+          <h2 className="text-2xl md:text-4xl text-primary font-extrabold lg:text-5xl">
+            What our happy clients say
           </h2>
           <p className="max-w-2xl mx-auto mt-4 text-base text-gray-400 leading-relaxed md:text-2xl">
             Curated Gems for Every Reading Mood!
@@ -78,29 +78,21 @@ export default function Testimonial() {
         </div>
         <Swiper
           breakpoints={{
-            0: {
-              slidesPerView: 1,
-            },
-            400: {
-              slidesPerView: 2,
-            },
-            639: {
-              slidesPerView: 2,
-            },
+            0: { slidesPerView: 1 },
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 2 },
           }}
           autoplay={true}
           loop={true}
           autoHeight={true}
           modules={[Autoplay]}
-          className="mySwiper rounded-t md:mt-1 mt-8  h-full flex flex-col flex-grow"
+          className="mySwiper"
         >
-          {testimonials
-            ?.slice(0, 6)
-            .map((testimonial: Testimonial, id: number) => (
-              <SwiperSlide className="mx-2 h-full" key={id}>
-                <TestimonialCard key={id} testimonial={testimonial} />
-              </SwiperSlide>
-            ))}
+          {testimonials.slice(0, 6).map((testimonial, index) => (
+            <SwiperSlide className="" key={index}>
+              <TestimonialCard testimonial={testimonial} />
+            </SwiperSlide>
+          ))}
           <div className="mt-5">
             <SwiperButton />
           </div>
